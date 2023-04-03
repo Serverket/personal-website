@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="377.95276"
+   height="377.95154"
+   viewBox="0 0 99.999996 99.99968"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   sodipodi:docname="Serverket_Logo.svg"
+   inkscape:export-xdpi="8.1300001"
+   inkscape:export-ydpi="8.1300001">
+  <title
+     id="title183">Serverket_Logo</title>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient2970"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#448bb7;stop-opacity:1;"
+         offset="0"
+         id="stop2968" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#grad"
+       id="linearGradient897"
+       x1="-4.4460364e-09"
+       y1="49.99984"
+       x2="100"
+       y2="49.99984"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="grad"
+       gradientTransform="matrix(0.37854377,0,0,0.37653887,-33.949492,-259.99977)"
+       x1="17.366333"
+       y1="57.259781"
+       x2="198.22202"
+       y2="57.259781"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="24%"
+         stop-color="#05EEFF"
+         id="stop2" />
+      <stop
+         offset="81.75%"
+         stop-color="#00FFF0"
+         id="stop4" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="71.973103"
+     inkscape:cy="198.97675"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     units="px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1029"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Serverket_Logo</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+        <dc:date>09-20-2021</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Manuel &quot;Serverket&quot; Hernandez</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Manuel &quot;Serverket&quot; Hernandez</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Manuel &quot;Serverket&quot; Hernandez</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:source />
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>logo</rdf:li>
+            <rdf:li>s</rdf:li>
+            <rdf:li>vector</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:prohibits
+           rdf:resource="http://creativecommons.org/ns#CommercialUse" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;stroke-width:0.264583"
+       id="path117"
+       d="" />
+    <path
+       style="fill:url(#linearGradient897);stroke:#ffffff;stroke-width:0.918976px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1.0"
+       d="m 0.45948,74.258578 48.400482,25.281441 1.9915,-0.003 48.568731,-24.724411 0.11899,-25.08114 -48.009181,-24.66411 h -2.97767 L 26.908711,35.626862 v 2.781061 l 45.438602,22.408115 v 2.5667 l -20.817161,10.6834 h -2.97763 L 0.459488,49.587538 V 24.897616 L 48.552582,0.459488 h 2.97767 l 48.009721,24.395741"
+       id="path119"
+       sodipodi:nodetypes="cccccccccccccccccc" />
+  </g>
+</svg>
