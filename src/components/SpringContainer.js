@@ -39,7 +39,6 @@ const data = PostList.map((post) => {
     linkURL: post.linkURL,
     height: 400,
     coverURL: `${post.coverURL}`,
-    role: post.role,
   };
 });
 

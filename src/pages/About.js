@@ -91,13 +91,6 @@ export default function About() {
               {PostList.map((post) => (
                 <>
                   <div className="w-auto h-auto">
-                    <p
-                      className={`${
-                        theme === "dark" ? "text-white" : "text-black"
-                      } text-base `}
-                    >
-                      {post.role}
-                    </p>
                     <div className="w-full h-full px-4 flex flex-row items-center justify-center">
                       <img
                         className="transition duration-200 ease-in-out"
