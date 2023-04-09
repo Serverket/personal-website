@@ -1,46 +1,33 @@
 {
   "name": "personal-website",
   "version": "2.0.0",
-  "private": true,
   "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@tailwindui/react": "^0.1.1",
-    "d3-ease": "^2.0.0",
-    "framer-motion": "^2.9.4",
-    "js-cookie": "^2.2.1",
-    "pathseg": "^1.2.0",
-    "react": "^17.0.1",
-    "react-cookie-consent": "^6.1.0",
-    "react-dom": "^17.0.1",
-    "react-pageflip": "^1.0.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.4",
-    "react-spring": "^8.0.27",
-    "react-tsparticles": "^1.18.8",
-    "typeface-dancing-script": "^1.1.13"
-  },
-  "scripts": {
-    "start": "npm run watch:css && react-scripts start",
-    "build": "npm run watch:css && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "framer-motion": "^10.10.0",
+    "js-cookie": "^3.0.1",
+    "d3-ease": "^3.0.1",
+    "pathseg": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-spring": "^9.7.1",
+    "react-pageflip": "^2.0.3",
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss-cli": "^8.1.0",
-    "tailwindcss": "^1.9.5"
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.2.0"
   }
 }

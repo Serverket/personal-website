@@ -2,28 +2,31 @@
 An universally acclaimed website.
 
 ## :gear: Install & Run
-You'll need at least `node 16` and then compile everything up:
+You'll need at least `node 16` and `bun` to compile everything up:
 
 ```
-npm install
+bun install
 
-npm start
+bun run dev
 ```
 
 ## :star2: Main features
 
 **Frontend / UI:**
-* React, Hooks, React Router, React Context, HOCs
+* React, React Context, React Router, Hooks and HOCs
 * Tailwind CSS
 * FormSubmit
 * Fontello
+* Vite
 
 **Animations:**
 * React-Spring (Hooks API)
 * Tailwind Transitions
 
 ## :shipit: Special Thanks
-To Marco, aka <a rel="noopener noreferrer" href="https://github.com/th1rst">th1rst</a>, for his work of art.
+* To Marco, aka <a rel="noopener noreferrer" href="https://github.com/th1rst">th1rst</a>, for his work of art.
+
+* To <a rel="noopener noreferrer" href="https://www.youtube.com/@maxhay5426">Max</a>, for his video.
 
 ## :brain: Acknowledgments
 
