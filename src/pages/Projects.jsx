@@ -24,7 +24,7 @@ export default function Projects() {
     <div
       className={`${
         theme === "dark" ? "bg-black" : "bg-white"
-      } w-full min-h-screen`}
+      } w-full min-h-screen font-noto`}
     >
       <h1
         className={`${

@@ -12,19 +12,19 @@ export default function Home() {
   const { theme } = React.useContext(ThemeContext);
 
   return (
-    <div className="w-full min-h-screen font-lato">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          preload="auto"
-          className="absolute bg-no-repeat bg-black bg-cover bg-center w-screen h-screen object-cover z-0"
-        >
-          <source src={Bg} type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
+    <div className="w-full min-h-screen font-noto">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        disablePictureInPicture
+        preload="auto"
+        className="absolute bg-no-repeat bg-black bg-cover bg-center w-screen h-screen object-cover z-0"
+      >
+        <source src={Bg} type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
 
       <div className="absolute w-full h-screen flex justify-center pointer-events-none">
         <div
@@ -35,7 +35,8 @@ export default function Home() {
           <div className="self-center">
             <p className="text-5xl leading-none">Hello friend, </p>
             <p className="text-6xl font-bold">
-              <Text tid="homeName" />
+              <Text tid="homeName" />{" "}
+              <span className="underline decoration-teal-400">Serverket</span>
             </p>
           </div>
 
@@ -47,7 +48,7 @@ export default function Home() {
             >
               Frontend Web Developer
             </p>
-            <p className="text-neutral-600 text-lg font-semibold text-justify">
+            <p className="text-neutral-500 text-lg font-semibold text-justify">
               <Text tid="homeFrom" />
             </p>
           </div>

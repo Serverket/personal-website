@@ -31,7 +31,7 @@ const DefaultProject = (props) => {
     <div className="mb-16 shadow-xl">
       {/* HEADING */}
       <div className="mb-1 flex flex-row justify-center items-center">
-        <i className="icon-code text-5xl pb-1 text-blue-400" />
+        <i className="icon-code text-5xl pb-1 bg-clip-text text-transparent bg-gradient-to-b from-blue-200 via-blue-500 to-teal-500" />
         <h3
           className={`${
             theme === "dark" ? "text-white" : "text-black"
@@ -41,8 +41,8 @@ const DefaultProject = (props) => {
         </h3>
       </div>
       <div className="flex flex-col border border-gray-800 rounded-xl">
-        <div className="p-2 mt-2 flex flex-row flex-wrap md:flex-no-wrap min-w-full h-auto max-w-6xl mx-auto">
-          <div className="w-full md:w-1/2 h-64 m-2 my-auto">
+        <div className="p-2 mt-2 flex flex-row flex-wrap md:flex-no-wrap min-w-full h-auto max-w-6xl">
+          <div className="w-full md:w-1/2 h-64 m-2 my-auto mx-auto">
             {/* IMAGE */}
 
             <div
@@ -130,7 +130,7 @@ const DefaultProject = (props) => {
             </div>
           </div>
           {/* DESCRIPTION */}
-          <div className="w-full md:w-1/2 m-2">
+          <div className="w-full md:w-1/3 mx-auto m-2">
             <div
               className={`${
                 theme === "dark" ? "text-white" : "text-black"

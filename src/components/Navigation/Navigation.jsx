@@ -85,7 +85,7 @@ export default function Navigation() {
       >
         <Link to="/" className="ml-2 inline-flex items-center z-50">
           <div className="flex items-center justify-center h-16 w-16">
-            <img className="w-8" src="/android-chrome-192x192.png" alt="logo" />
+            <img className="w-8 hover:animate-pulse" src="/android-chrome-192x192.png" alt="logo" />
           </div>
         </Link>
         <div className="ml-1 flex flex-col items-start justify-center z-50">

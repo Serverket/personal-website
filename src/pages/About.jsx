@@ -31,7 +31,7 @@ export default function About() {
   }, [setHidden]);
 
   const trailItems = [
-    <div>
+    <div className="font-noto">
       {/* ----- ITEM 1 -----*/}
       <div className="flex flex-row justify-start items-center">
         <div className="w-10 h-1 inline-flex bg-gradient-to-r from-blue-400 via-blue-500 to-teal-500 rounded-lg" />

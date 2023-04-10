@@ -22,7 +22,7 @@ export default function Contact() {
     <div
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } w-full h-screen`}
+      } w-full h-screen font-noto`}
     >
       {hasGivenConsent ? (
         <ContactForm />
