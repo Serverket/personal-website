@@ -6,7 +6,28 @@ const ContactForm = () => {
   const { theme } = React.useContext(ThemeContext);
 
   return (
-    <form
+    <>
+      <div className="flex flex-col items-center justify-center font-noto">
+        <p className="font-semibold tracking-tight leading-7 text-justify p-4 lg:p-12 inline-flex">
+          <Text tid="contact" />
+        </p>
+        <p className="font-thin tracking-tight text-justify -mt-4 inline-flex">
+          <Text tid="notice" />
+        </p>
+        <i className="icon-down-open text-base animate-bounce p-4 lg:p-12" />
+        <a href="mailto:serverket@protonmail.com?subject=Hey%20there!">
+          <button
+            className={`${
+              theme === "dark"
+                ? "hover:bg-teal-400 text-white border-white"
+                : "hover:bg-black hover:text-white text-black border-black"
+            } hover:shadow-lg hover:shadow-teal-500/50 font-bold mx-auto p-4 h-14 w-36 rounded-full border-2 flex flex-row items-center justify-center pointer-events-auto cursor-pointer transition duration-300 ease-in-out`}
+          >
+            <Text tid="send" />
+          </button>
+        </a>
+      </div>
+      {/* <form
       target="_blank"
       rel="noopener noreferrer"
       action="https://formsubmit.co/serverket@protonmail.com"
@@ -77,7 +98,8 @@ const ContactForm = () => {
       >
         <Text tid="send" />
       </button>
-    </form>
+    </form> */}
+    </>
   );
 };
 
