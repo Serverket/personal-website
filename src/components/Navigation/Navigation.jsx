@@ -85,7 +85,11 @@ export default function Navigation() {
       >
         <Link to="/" className="ml-2 inline-flex items-center z-50">
           <div className="flex items-center justify-center h-16 w-16">
-            <img className="w-8 hover:animate-pulse" src="/android-chrome-192x192.png" alt="logo" />
+            <img
+              className="w-8 hover:animate-pulse"
+              src="/android-chrome-192x192.png"
+              alt="logo"
+            />
           </div>
         </Link>
         <div className="ml-1 flex flex-col items-start justify-center z-50">
@@ -219,6 +223,8 @@ export default function Navigation() {
               </Transition>
             </Link>
 
+            <ThemeSelector />
+
             <div className="mx-2 h-4 w-2 border-l border-gray-700 z-50" />
             <div className="mx-2 z-50">
               {!settingsVisible ? (
@@ -228,7 +234,7 @@ export default function Navigation() {
                     theme === "dark"
                       ? "text-white hover:text-teal-400"
                       : "text-gray-800 hover:text-teal-400"
-                  } icon-cog text-lg cursor-pointer`}
+                  } icon-language text-lg cursor-pointer transition-all duration-150`}
                 />
               ) : (
                 <i
@@ -236,8 +242,8 @@ export default function Navigation() {
                   className={`${
                     theme === "dark"
                       ? "text-white hover:text-gray-600"
-                      : "text-gray-800 hover:text-gray-600"
-                  } icon-cancel-circle text-md cursor-pointer`}
+                      : "text-gray-800 hover:text-gray-500"
+                  } icon-cancel-circle text-md cursor-pointer transition-all duration-150`}
                 />
               )}
             </div>
@@ -250,7 +256,6 @@ export default function Navigation() {
                   ),
                 }}
               >
-                <ThemeSelector />
                 <LanguageSelector />
               </animated.div>
             ) : null}
