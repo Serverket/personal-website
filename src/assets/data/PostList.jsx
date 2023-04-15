@@ -18,7 +18,7 @@ export const PostList = [
       "https://community.parrotsec.org/uploads/default/optimized/2X/4/48effee36b2b86615e4f4e4f865b61cbb0388a3f_2_460x333.png",
   },
   {
-    name: "LibreOffice UI ",
+    name: "LibreOffice UI",
     linkURL:
       "https://community.parrotsec.org/t/get-modern-libreoffice-ui/20491",
     coverURL: "https://i.postimg.cc/W44qjVdR/Libre-Office.png",

@@ -99,17 +99,22 @@ export default function About() {
                       />
                     </div>
                   </div>
-                  <a
-                    href={post.linkURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="mt-2 mb-10 flex flex-row items-center justify-center mx-auto bg-blue-400 h-10 w-32 rounded-xl p-4 text-white">
-                      <p className="font-semibold text-base tracking-wide">
-                        <Text tid="readNow" />
-                      </p>
-                    </div>
-                  </a>
+                  <div className="flex flex-col items-center justify-center mx-auto text-white">
+                    <p className="font-semibold text-base normal-case">
+                      {post.name}
+                    </p>
+                    <a
+                      href={post.linkURL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="mt-2 mb-10 flex flex-row items-center justify-center mx-auto bg-blue-400 h-10 w-32 rounded-xl p-4 text-white">
+                        <p className="font-semibold text-base tracking-wide normal-case">
+                          <Text tid="readNow" />
+                        </p>
+                      </div>
+                    </a>
+                  </div>
                 </>
               ))}
             </div>
@@ -176,17 +181,22 @@ export default function About() {
                               src={post.coverURL}
                               alt={post.name}
                             />
-                            <a
-                              href={post.linkURL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <div className="mt-2 mb-10 flex flex-row items-center justify-center mx-auto bg-blue-500 border-b-4 border-transparent hover:border-blue-700 transition-all duration-200 h-10 w-32 rounded-xl p-4 text-white">
-                                <p className="font-semibold text-base tracking-wide">
-                                  <Text tid="readNow" />
-                                </p>
-                              </div>
-                            </a>
+                            <div className="flex flex-col items-center justify-center mx-auto text-white">
+                              <p className="font-semibold text-base normal-case">
+                                {post.name}
+                              </p>
+                              <a
+                                href={post.linkURL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <div className="mt-2 mb-10 flex items-center justify-center mx-auto bg-blue-500 hover:border-b-4 border-transparent hover:border-blue-700 transition-all duration-200 h-10 w-32 rounded-xl p-4 text-white">
+                                  <p className="font-semibold text-base tracking-wide normal-case">
+                                    <Text tid="readNow" />
+                                  </p>
+                                </div>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>

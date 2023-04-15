@@ -164,8 +164,6 @@ export default function ImprintPrivacyPolicy() {
                 información que compartan y/o recopilen en Serverket.dev.
                 Esta política no es aplicable a ninguna información recogida
                 fuera de línea o a través de canales distintos de este sitio web.
-
-Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
               </p>
               <h2 className="mt-4 text-xl text-center font-bold">
                 Consentimiento
