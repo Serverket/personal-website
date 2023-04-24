@@ -1,5 +1,9 @@
+<div id="header" align="center">
+<img src="./src/assets/pictures/personal-website.webp" alt="Cover" title="Cover">
+
 # Personal Website &middot; ![Release Status](https://img.shields.io/badge/release-v2.0.0-brightgreen) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
-An universally acclaimed website.
+**An Universally Acclaimed Website**
+</div>
 
 ## :gear: Install & Run
 You'll need at least `node 16` and `bun` to compile everything up:
