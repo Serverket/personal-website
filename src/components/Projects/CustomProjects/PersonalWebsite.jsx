@@ -24,7 +24,7 @@ export default function PersonalWebsite() {
   });
 
   return (
-    <div className="mb-16 shadow-xl">
+    <div className="mb-16 shadow-xl rounded-xl">
       {/* HEADING */}
       <div className="mb-1 flex flex-row justify-center items-center">
         <i className="icon-code text-5xl pb-1 bg-clip-text text-transparent bg-gradient-to-b from-blue-200 via-blue-500 to-teal-500" />
@@ -96,7 +96,7 @@ export default function PersonalWebsite() {
                   {/* GITHUB */}
                   <a
                     className="flex flex-col items-center "
-                    href="https://github.com/th1rst/personal-portfolio-page"
+                    href="https://github.com/Serverket/personal-website"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

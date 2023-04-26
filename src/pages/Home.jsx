@@ -21,6 +21,8 @@ export default function Home() {
         className="absolute bg-no-repeat bg-cover bg-center w-screen h-screen object-cover z-10"
       >
         <source src={Bg} type="video/webm" />
+        <track src="captions_en.vtt" kind="captions" srcLang="en" label="Video background of a colourful looping animation with no sound" />
+        <track src="captions_es.vtt" kind="captions" srcLang="es" label="Fondo de video de una colorida animación en bucle sin sonido" />
         Your browser does not support the video tag.
       </video>
       <div className="w-full min-h-screen bg-black font-noto">
