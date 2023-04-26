@@ -116,6 +116,10 @@ export default function Navigation() {
             theme === "dark" ? "text-white" : "text-black"
           } inline-flex p-3 rounded lg:hidden ml-auto outline-none nav-toggler z-50`}
           onClick={() => setHidden(!hidden)}
+          tabIndex="0"
+          role="button"
+          aria-expanded="false"
+          aria-label="Open menu"
         >
           <i className="icon-menu text-xl" />
         </button>
@@ -235,6 +239,9 @@ export default function Navigation() {
                       ? "text-white hover:text-teal-400"
                       : "text-gray-800 hover:text-teal-400"
                   } icon-language text-lg cursor-pointer transition-all duration-150`}
+                  role="button"
+                  aria-expanded="false"
+                  aria-label="Open language selector"
                 />
               ) : (
                 <i
@@ -244,6 +251,9 @@ export default function Navigation() {
                       ? "text-white hover:text-gray-600"
                       : "text-gray-800 hover:text-gray-500"
                   } icon-cancel-circle text-md cursor-pointer transition-all duration-150`}
+                  role="button"
+                  aria-expanded="false"
+                  aria-label="Close language selector"
                 />
               )}
             </div>

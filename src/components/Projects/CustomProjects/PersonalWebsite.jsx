@@ -96,7 +96,7 @@ export default function PersonalWebsite() {
                   {/* GITHUB */}
                   <a
                     className="flex flex-col items-center "
-                    href="https://github.com/th1rst/personal-portfolio-page"
+                    href="https://github.com/Serverket/personal-website"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

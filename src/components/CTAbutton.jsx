@@ -17,6 +17,8 @@ export function CTAbutton() {
               ? "hover:bg-teal-400 text-white border-white"
               : "hover:bg-white hover:text-black text-white border-white"
           } mt-8 md:mt-20 mx-auto p-4 h-16 w-48 rounded-full border-2 flex flex-row items-center justify-center pointer-events-auto cursor-pointer transition duration-300 ease-in-out`}
+          role="button"
+          aria-label="Go to 'My Work' page"
         >
           <p className="text-sm text-center font-semibold uppercase tracking-tight">
             <Text tid="homeButtonText" />
