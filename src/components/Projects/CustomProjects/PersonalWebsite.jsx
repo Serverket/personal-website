@@ -24,7 +24,7 @@ export default function PersonalWebsite() {
   });
 
   return (
-    <div className="mb-16 shadow-xl">
+    <div className="mb-16 shadow-xl rounded-xl">
       {/* HEADING */}
       <div className="mb-1 flex flex-row justify-center items-center">
         <i className="icon-code text-5xl pb-1 bg-clip-text text-transparent bg-gradient-to-b from-blue-200 via-blue-500 to-teal-500" />

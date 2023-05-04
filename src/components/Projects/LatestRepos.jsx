@@ -26,7 +26,7 @@ const LatestRepos = () => {
           <Text tid="repoHeading" />
         </h3>
       </div>
-      <div className="mb-16 shadow-xl">
+      <div className="mb-16 shadow-xl rounded-xl">
         <div className="flex flex-col border border-gray-800 rounded-xl">
           <div className="p-8 md:p-4 flex flex-row justify-center flex-wrap md:flex-no-wrap min-w-full h-auto max-w-6xl">
             <div className="flex justify-center">
