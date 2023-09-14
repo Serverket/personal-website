@@ -74,7 +74,7 @@ export default function PersonalWebsite() {
                       >
                         <i className="icon-github-circled text-6xl object-center" />
                         <p className="ml-2 font-semibold">
-                          <Text tid="viewSource" />
+                        <i className="icon-lock-open text-md" /><Text tid="viewSource" />
                         </p>
                       </div>
                     </a>
@@ -102,7 +102,7 @@ export default function PersonalWebsite() {
                   >
                     <i className="icon-github-circled text-6xl object-center" />
                     <p className="my-1 font-semibold">
-                      <Text tid="viewSource" />
+                    <i className="icon-lock-open text-md" /><Text tid="viewSource" />
                     </p>
                   </a>
                 </div>

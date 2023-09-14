@@ -20,6 +20,7 @@ const DefaultProject = (props) => {
     imageFront,
     imageBack,
     githubLink,
+    lockIcon,
     liveVersionLink,
     projectShortDescription,
     aboutProjectText,
@@ -97,7 +98,7 @@ const DefaultProject = (props) => {
                           >
                             <i className="icon-github-circled text-6xl object-center" />
                             <p className="mt-1 font-semibold">
-                              <Text tid="viewSource" />
+                             <i className={lockIcon} /><Text tid="viewSource" />
                             </p>
                           </a>
                         </div>
@@ -148,7 +149,7 @@ const DefaultProject = (props) => {
                   >
                     <i className="icon-github-circled text-6xl object-center" />
                     <p className="my-1 font-semibold">
-                      <Text tid="viewSource" />
+                    <i className={lockIcon} /><Text tid="viewSource" />
                     </p>
                   </a>
                 </div>

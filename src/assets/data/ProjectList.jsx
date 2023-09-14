@@ -5,6 +5,8 @@ import LatestRepos from "../../components/Projects/LatestRepos";
 import { Text } from "../../components/Multilanguage/Text";
 
 //Pictures
+import ccwFront from "../pictures/ColibriCreativeWeb/ccwFront.webp";
+import ccwBack from "../pictures/ColibriCreativeWeb/ccwBack.webp";
 import rgcFront from "../pictures/RGC/rgcFront.webp";
 import rgcBack from "../pictures/RGC/rgcBack.webp";
 import fdFront from "../pictures/DARSE/fdFront.webp";
@@ -17,6 +19,72 @@ import jdBack from "../pictures/JDRivero/jdBack.webp";
 const projectList = [
   <LatestRepos />,
 
+  <DefaultProject
+    name={"Colibri Creative Web"}
+    imageFront={ccwFront}
+    imageBack={ccwBack}
+    githubLink={"https://github.com/colibricreativeweb/ccw-web"}
+    lockIcon={"icon-lock-open text-md"}
+    liveVersionLink={"https://www.colibricreativeweb.com/"}
+    projectShortDescription={<Text tid="ccwSubheading" />}
+    aboutProjectText={
+      <div>
+        <Text tid="aboutCcw" />
+      </div>
+    }
+    features={[<Text tid="ccwFeature1" />, <Text tid="ccwFeature2" />, <Text tid="ccwFeature3" />]}
+    techStack={[
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-HTML-311701?style=for-the-badge&color=1e1e2e&logo=html5&logoColor=white"
+            alt="html"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-CSS-311701?style=for-the-badge&color=1e1e2e&logo=css3&logoColor=white"
+            alt="css"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-JavaScript-311701?style=for-the-badge&color=1e1e2e&logo=javascript&logoColor=white"
+            alt="javascript"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-React-311701?style=for-the-badge&color=1e1e2e&logo=react&logoColor=white"
+            alt="react"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-TailwindCSS-311701?style=for-the-badge&color=1e1e2e&logo=tailwindcss&logoColor=white"
+            alt="tailwindcss"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-Vercel-311701?style=for-the-badge&color=1e1e2e&logo=vercel&logoColor=white"
+            alt="vercel"
+          />
+        ),
+      },
+    ]}
+  />,
+
   <PersonalWebsite />,
 
   <DefaultProject
@@ -24,6 +92,7 @@ const projectList = [
     imageFront={rgcFront}
     imageBack={rgcBack}
     githubLink={"https://github.com/RiveroVisualGroup/rgcweb-frontend"}
+    lockIcon={"icon-lock text-md"}
     liveVersionLink={"https://www.riverosglobalcompany.com/"}
     projectShortDescription={<Text tid="ltSubheading" />}
     aboutProjectText={
@@ -88,6 +157,7 @@ const projectList = [
     imageFront={fdFront}
     imageBack={fdBack}
     githubLink={"https://github.com/RiveroVisualGroup/rgcweb-frontend"}
+    lockIcon={"icon-lock text-md"}
     liveVersionLink={"https://www.fundaciondarse.org/"}
     projectShortDescription={<Text tid="gcSubheading" />}
     aboutProjectText={
@@ -172,6 +242,7 @@ const projectList = [
     imageFront={gcFront}
     imageBack={gcBack}
     githubLink={"https://github.com/RiveroVisualGroup/gecontracweb-frontend"}
+    lockIcon={"icon-lock text-md"}
     liveVersionLink={"https://gecontrac.com/"}
     projectShortDescription={<Text tid="spSubheading" />}
     aboutProjectText={
@@ -248,6 +319,7 @@ const projectList = [
     imageFront={jdFront}
     imageBack={jdBack}
     githubLink={"https://github.com/RiveroVisualGroup/jdriveroweb-frontend"}
+    lockIcon={"icon-lock text-md"}
     liveVersionLink={"https://old.jdrivero.com"}
     projectShortDescription={<Text tid="jppSubheading" />}
     aboutProjectText={
