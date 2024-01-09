@@ -20,7 +20,7 @@ export function CTAbutton() {
           role="button"
           aria-label="Go to 'My Work' page"
         >
-          <p className="text-sm text-center font-semibold uppercase tracking-tight">
+          <p className="text-sm text-center font-semibold uppercase tracking-tight filter drop-shadow-md">
             <Text tid="homeButtonText" />
           </p>
           <i className="w-3 dark:text-white icon-right-open-3" />

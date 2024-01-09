@@ -38,30 +38,48 @@ const LatestRepos = () => {
                         theme === "dark" ? "text-white" : "text-black"
                       } text-lg font-bold tracking-widest`}
                     >
-                      <a
-                        href={repo.html_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {repo.name}
-                        <i className="icon-link-ext text-xs" />
-                      </a>
-                      <p
-                        className={`${
-                          theme === "dark" ? "text-white" : "text-black"
-                        } text-sm font-normal tracking-tight`}
-                      >
-                        {repo.description}
-                      </p>
-                      <p className="text-sm font-normal">
-                        {repo.fork && <i className="icon-fork text-sm" />}
-                        <i className="icon-star text-sm" />{" "}
-                        {repo.stargazers_count}
-                      </p>
-                      <p className="text-sm font-light">
-                        <Text tid="repoUpdate" />{" "}
-                        {new Date(repo.updated_at).toUTCString()}
-                      </p>
+                      <div className="flex flex-col sm:flex-row">
+                        <a
+                          href={repo.html_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src={`https://raw.githubusercontent.com/serverket/${repo.name}/master/public/cover.png`}
+                            alt={repo.name}
+                            className="w-20 h-20 sm:mt-1 rounded-md mr-4 hover:scale-110 transition-all ease-in-out duration-200"
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = "/z-cover.png";
+                            }}
+                          />
+                        </a>
+                        <div className="flex flex-col">
+                          <a
+                            href={repo.html_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {repo.name} <i className="icon-link-ext text-xs" />
+                          </a>
+                          <p
+                            className={`${
+                              theme === "dark" ? "text-white" : "text-black"
+                            } text-sm font-normal tracking-tight`}
+                          >
+                            {repo.description}
+                          </p>
+                          <p className="text-sm font-normal">
+                            {repo.fork && <i className="icon-fork text-sm" />}
+                            <i className="icon-star text-sm" />{" "}
+                            {repo.stargazers_count}
+                          </p>
+                          <p className="text-sm font-light">
+                            <Text tid="repoUpdate" />{" "}
+                            {new Date(repo.updated_at).toUTCString()}
+                          </p>
+                        </div>
+                      </div>
                     </h3>
                   </li>
                 ))}
