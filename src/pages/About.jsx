@@ -4,11 +4,75 @@ import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 import { Text } from "../components/Multilanguage/Text";
 import { PostList } from "../assets/data/PostList";
 import { SkillList } from "../assets/data/SkillList";
-import SpringContainer from "../components/SpringContainer";
 import michy from "../assets/pictures/michy.webp";
 
 //Profile Pic
 import { ProfilePicture } from "../assets/pictures/ProfilePicture";
+
+const FALLBACK_REPO_COVER = "/z-cover.png";
+
+const WritingPostCard = ({ post, theme, buttonVariant = "solid" }) => {
+  const isDark = theme === "dark";
+  const cardBase = isDark
+    ? "bg-gray-900/40 border border-gray-800 text-white"
+    : "bg-white border border-gray-200 text-gray-900";
+
+  const buttonClasses =
+    "mt-2 mb-4 flex items-center justify-center mx-auto bg-blue-500 hover:border-b-4 border-transparent hover:border-blue-700 transition-all duration-200 h-10 w-32 rounded-xl p-4 text-white";
+
+  const shadowStyles = isDark ? "shadow-blue-900/40" : "shadow-blue-200";
+
+  return (
+    <article
+      className={`${cardBase} ${shadowStyles} flex h-full w-full max-w-[320px] flex-col items-center rounded-2xl p-3 text-center transition duration-200 ease-out hover:-translate-y-1 hover:shadow-xl sm:p-4 mx-auto`}
+    >
+      <div className="relative w-full overflow-hidden rounded-xl bg-gray-900/30 aspect-[4/3]">
+        <img
+          className="h-full w-full object-cover"
+          src={post.coverURL}
+          alt={post.name}
+          loading="lazy"
+          decoding="async"
+          onError={(event) => {
+            event.currentTarget.onerror = null;
+            event.currentTarget.src = FALLBACK_REPO_COVER;
+          }}
+        />
+      </div>
+      <p className="mt-4 text-lg font-semibold">{post.name}</p>
+      <div className="mt-auto pt-2 pb-1 w-full">
+        <a
+          href={post.linkURL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${post.name} article`}
+          className="inline-flex w-full justify-center"
+        >
+          <div className={buttonClasses}>
+            <p className="font-semibold text-base tracking-wide normal-case">
+              <Text tid="readNow" />
+            </p>
+          </div>
+        </a>
+      </div>
+    </article>
+  );
+};
+
+const WritingPostList = ({ theme, buttonVariant = "solid", className = "" }) => (
+  <div
+    className={`w-full max-w-6xl mx-auto grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 ${className}`}
+  >
+    {PostList.map((post) => (
+      <WritingPostCard
+        key={post.name}
+        post={post}
+        theme={theme}
+        buttonVariant={buttonVariant}
+      />
+    ))}
+  </div>
+);
 
 export default function About() {
   const { theme } = React.useContext(ThemeContext);
@@ -86,37 +150,9 @@ export default function About() {
               <i className="icon-book text-6xl bg-clip-text text-transparent bg-gradient-to-b from-blue-200 via-blue-500 to-teal-500" />
               <Text tid="writingHeading" />
             </div>
-            <div className="md:hidden mb-8">
+            <div className="md:hidden mb-8 w-full">
               {/* MOBILE VERSION, HIDDEN >md BREAKPOINT*/}
-              {PostList.map((post) => (
-                <>
-                  <div className="w-auto h-auto">
-                    <div className="w-full h-full px-4 flex flex-row items-center justify-center">
-                      <img
-                        className="transition duration-200 ease-in-out"
-                        src={post.coverURL}
-                        alt={post.name}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center justify-center mx-auto text-white">
-                    <p className="font-semibold text-base normal-case">
-                      {post.name}
-                    </p>
-                    <a
-                      href={post.linkURL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div className="mt-2 mb-10 flex flex-row items-center justify-center mx-auto bg-blue-400 h-10 w-32 rounded-xl p-4 text-white">
-                        <p className="font-semibold text-base tracking-wide normal-case">
-                          <Text tid="readNow" />
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </>
-              ))}
+              <WritingPostList theme={theme} buttonVariant="solid" />
             </div>
             <div
               className="h-40 w-40 m-4 flex flex-col justify-center items-center cursor-pointer"
@@ -127,35 +163,35 @@ export default function About() {
             </div>
             <div className="md:hidden mb-8">
               {/* MOBILE VERSION, HIDDEN >md BREAKPOINT*/}
-              <p className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
-                <Text tid="petsText1" />
-                <br />
-                <Text tid="petsText2" />{" "}
-                <button
-                  className="bg-blue-500 hover:bg-blue-400 text-white font-bold px-2 mx-1 border-b-4 border-blue-700 hover:border-blue-500 rounded-full"
-                  onClick={handleClick}
-                >
-                  Michy.
+                <div className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
+                  <Text tid="petsText1" />
                   <br />
-                </button>
-                {showImage && (
-                  <div className="flex items-center justify-center md:items-start md:justify-start">
-                    <img className="w-full md:w-56" src={michy} alt="michy" />
-                  </div>
-                )}
-                <Text tid="petsText3" />
-                <br />
-                <Text tid="petsText4" />
-                <br />
-                <Text tid="petsText5" />
-                <br />
-                <br />
-                <p className="italic text-center">
-                  &quot;
-                  <Text tid="petsText6" />
-                  &quot;
-                </p>
-              </p>
+                  <Text tid="petsText2" />{" "}
+                  <button
+                    className="bg-blue-500 hover:bg-blue-400 text-white font-bold px-2 mx-1 border-b-4 border-blue-700 hover:border-blue-500 rounded-full"
+                    onClick={handleClick}
+                  >
+                    Michy.
+                    <br />
+                  </button>
+                  {showImage && (
+                    <div className="flex items-center justify-center md:items-start md:justify-start">
+                      <img className="w-full md:w-56" src={michy} alt="michy" />
+                    </div>
+                  )}
+                  <Text tid="petsText3" />
+                  <br />
+                  <Text tid="petsText4" />
+                  <br />
+                  <Text tid="petsText5" />
+                  <br />
+                  <br />
+                  <span className="block italic text-center">
+                    &quot;
+                    <Text tid="petsText6" />
+                    &quot;
+                  </span>
+                </div>
             </div>
           </div>
           <div className="hidden md:flex flex-row w-full justify-center px-12 py-4 font-semibold tracking-tight leading-7 text-justify">
@@ -168,46 +204,17 @@ export default function About() {
             ) : null}
 
             {visibleText === "writing" ? (
-              <div className="w-full h-full">
-                {/* DESKTOP VERSION */}
-                <div className="mb-8 flex flex-row">
-                  {PostList.map((post) => (
-                    <>
-                      <div className="w-auto h-auto flex items-center justify-center">
-                        <div className="w-full h-full px-4 lg:px-24 flex flex-row items-end justify-center">
-                          <div className="flex flex-col">
-                            <img
-                              className="transition duration-200 ease-in-out"
-                              src={post.coverURL}
-                              alt={post.name}
-                            />
-                            <div className="flex flex-col items-center justify-center mx-auto text-white">
-                              <p className="font-semibold text-base normal-case">
-                                {post.name}
-                              </p>
-                              <a
-                                href={post.linkURL}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <div className="mt-2 mb-10 flex items-center justify-center mx-auto bg-blue-500 hover:border-b-4 border-transparent hover:border-blue-700 transition-all duration-200 h-10 w-32 rounded-xl p-4 text-white">
-                                  <p className="font-semibold text-base tracking-wide normal-case">
-                                    <Text tid="readNow" />
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
+              <div className="w-full">
+                <WritingPostList
+                  theme={theme}
+                  buttonVariant="ghost"
+                  className="mb-4"
+                />
               </div>
             ) : null}
 
             {visibleText === "pets" ? (
-              <p className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
+              <div className="px-2 font-semibold font-normal text-base normal-case text-sm text-justify">
                 <Text tid="petsText1" />
                 <br />
                 <Text tid="petsText2" />{" "}
@@ -230,12 +237,12 @@ export default function About() {
                 <Text tid="petsText5" />
                 <br />
                 <br />
-                <p className="italic text-center">
+                <span className="block italic text-center">
                   &quot;
                   <Text tid="petsText6" />
                   &quot;
-                </p>
-              </p>
+                </span>
+              </div>
             ) : null}
           </div>
         </div>
@@ -250,8 +257,11 @@ export default function About() {
         </p>
       </div>
       <div className="text-white font-bold uppercase mt-6 w-full border-2 border-gray-800 rounded-lg flex flex-row flex-wrap justify-around items-center mb-12 shadow-xl">
-        {SkillList.map((skill) => (
-          <div className="m-4 h-12 w-32 border-transparent rounded-full flex flex-col justify-center items-center">
+        {SkillList.map((skill, index) => (
+          <div
+            key={skill.name ? `skill-${skill.name}` : `skill-${index}`}
+            className="m-4 h-12 w-32 border-transparent rounded-full flex flex-col justify-center items-center"
+          >
             {skill.logo}
           </div>
         ))}
@@ -273,13 +283,11 @@ export default function About() {
           {!hidden ? (
             <animated.div style={{ opacity }}>
               <ul>
-                {trail.map(({ opacity }, i) => {
-                  return (
-                    <animated.li style={{ opacity }} key={Math.random() * 1000}>
-                      {trailItems[i]}
-                    </animated.li>
-                  );
-                })}
+                {trail.map(({ opacity }, i) => (
+                  <animated.li style={{ opacity }} key={`about-section-${i}`}>
+                    {trailItems[i]}
+                  </animated.li>
+                ))}
               </ul>
             </animated.div>
           ) : null}

@@ -22,17 +22,20 @@ const DefaultProject = (props) => {
     githubLink,
     lockIcon,
     liveVersionLink,
+    showLiveVersion = true,
+    sourceLabelTid = "viewSource",
     projectShortDescription,
     aboutProjectText,
     features,
     techStack,
   } = props;
+  const shouldShowLiveButton = showLiveVersion && Boolean(liveVersionLink);
 
   return (
-    <div className="mb-16 shadow-xl rounded-xl">
+    <div className="mb-16 rounded-xl shadow-xl">
       {/* HEADING */}
-      <div className="mb-1 flex flex-row justify-center items-center">
-        <i className="icon-code text-5xl pb-1 bg-clip-text text-transparent bg-gradient-to-b from-blue-200 via-blue-500 to-teal-500" />
+      <div className="flex flex-row justify-center items-center mb-1">
+        <i className="pb-1 text-5xl text-transparent bg-clip-text bg-gradient-to-b from-blue-200 via-blue-500 to-teal-500 icon-code" />
         <h3
           className={`${
             theme === "dark" ? "text-white" : "text-black"
@@ -41,18 +44,18 @@ const DefaultProject = (props) => {
           {name}
         </h3>
       </div>
-      <div className="flex flex-col border border-gray-800 rounded-xl">
-        <div className="p-2 mt-2 flex flex-row flex-wrap md:flex-no-wrap min-w-full h-auto max-w-6xl">
-          <div className="w-full md:w-1/2 h-64 m-2 my-auto mx-auto">
+      <div className="flex flex-col rounded-xl border border-gray-800">
+        <div className="flex flex-row flex-wrap p-2 mt-2 min-w-full max-w-6xl h-auto md:flex-no-wrap">
+          <div className="m-2 mx-auto my-auto w-full h-64 md:w-1/2">
             {/* IMAGE */}
 
             <div
-              className="relative h-full w-full max-w-3xl rounded-lg"
+              className="relative w-full max-w-3xl h-full rounded-lg"
               onMouseEnter={() => setFlipped(true)}
               onMouseLeave={() => setFlipped(false)}
             >
               <animated.div
-                className="absolute w-full h-full object-cover rounded-lg"
+                className="object-cover absolute w-full h-full rounded-lg"
                 style={{
                   opacity: opacity.to((o) => 1 - o),
                   transform,
@@ -60,7 +63,7 @@ const DefaultProject = (props) => {
               >
                 {/* IMAGE FRONT */}
                 <img
-                  className="w-full h-full object-cover rounded-lg"
+                  className="object-cover w-full h-full rounded-lg"
                   src={imageFront}
                   alt="overview"
                 />
@@ -75,11 +78,11 @@ const DefaultProject = (props) => {
                 {/* IMAGE BACK, WITH LINKS TO PROJECT */}
                 <div>
                   <img
-                    className="absolute w-full h-full object-cover rounded-lg opacity-50"
+                    className="object-cover absolute w-full h-full rounded-lg opacity-50"
                     src={imageBack}
                     alt="login"
                   />
-                  <div className="absolute w-full h-full flex flex-col justify-center">
+                  <div className="flex absolute flex-col justify-center w-full h-full">
                     <div className="flex flex-col">
                       <div className="flex flex-row justify-evenly">
                         <div
@@ -91,38 +94,40 @@ const DefaultProject = (props) => {
                         >
                           {/* GITHUB */}
                           <a
-                            className="flex flex-col items-center "
+                            className="flex flex-col items-center"
                             href={githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <i className="icon-github-circled text-6xl object-center" />
+                            <i className="object-center text-6xl icon-github-circled" />
                             <p className="mt-1 font-semibold">
-                             <i className={lockIcon} /><Text tid="viewSource" />
+                             <i className={lockIcon} /><Text tid={sourceLabelTid} />
                             </p>
                           </a>
                         </div>
 
-                        <div
-                          className={`${
-                            theme === "dark"
-                              ? "text-white hover:text-blue-400"
-                              : "text-gray-800 hover:text-blue-400"
-                          } cursor-pointer`}
-                        >
-                          {/* LIVE VERSION INCL. POPOVER FOR CREDENTIALS */}
-                          <a
-                            className="flex flex-col items-center "
-                            href={liveVersionLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        {shouldShowLiveButton ? (
+                          <div
+                            className={`${
+                              theme === "dark"
+                                ? "text-white hover:text-blue-400"
+                                : "text-gray-800 hover:text-blue-400"
+                            } cursor-pointer`}
                           >
-                            <i className="icon-coverflow text-6xl object-center" />
-                            <p className="mt-1 font-semibold">
-                              <Text tid="viewLiveVersion" />
-                            </p>
-                          </a>
-                        </div>
+                            {/* LIVE VERSION INCL. POPOVER FOR CREDENTIALS */}
+                            <a
+                              className="flex flex-col items-center"
+                              href={liveVersionLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <i className="object-center text-6xl icon-coverflow" />
+                              <p className="mt-1 font-semibold">
+                                <Text tid="viewLiveVersion" />
+                              </p>
+                            </a>
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   </div>
@@ -131,61 +136,71 @@ const DefaultProject = (props) => {
             </div>
           </div>
           {/* DESCRIPTION */}
-          <div className="w-full md:w-1/3 mx-auto m-2">
+          <div className="m-2 mx-auto w-full md:w-1/3">
             <div
               className={`${
                 theme === "dark" ? "text-white" : "text-black"
               } w-full h-full flex flex-col justify-center`}
             >
               {/* CONTAINER FOR MOBILE GITHUB / LIVE VERSION, HIDDEN >md breakpoint*/}
-              <div className="md:hidden mt-8 mb-4 flex flex-row justify-evenly">
-                <div className="hover:text-gray-500 cursor-pointer">
+              <div className="flex flex-row justify-evenly mt-8 mb-4 md:hidden">
+                <div className="cursor-pointer hover:text-gray-500">
                   {/* GITHUB */}
                   <a
-                    className="flex flex-col items-center "
+                    className="flex flex-col items-center"
                     href={githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i className="icon-github-circled text-6xl object-center" />
+                    <i className="object-center text-6xl icon-github-circled" />
                     <p className="my-1 font-semibold">
-                    <i className={lockIcon} /><Text tid="viewSource" />
+                    <i className={lockIcon} /><Text tid={sourceLabelTid} />
                     </p>
                   </a>
                 </div>
 
-                <div className="hover:text-gray-500">
-                  {/* LIVE VERSION */}
-                  <a
-                    className="flex flex-col items-center cursor-pointer"
-                    href={liveVersionLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="icon-coverflow text-6xl object-center" />
-                    <p className="my-1 font-semibold">
-                      <Text tid="viewLiveVersion" />
-                    </p>
-                  </a>
-                </div>
+                {shouldShowLiveButton ? (
+                  <div className="hover:text-gray-500">
+                    {/* LIVE VERSION */}
+                    <a
+                      className="flex flex-col items-center cursor-pointer"
+                      href={liveVersionLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="object-center text-6xl icon-coverflow" />
+                      <p className="my-1 font-semibold">
+                        <Text tid="viewLiveVersion" />
+                      </p>
+                    </a>
+                  </div>
+                ) : null}
               </div>
 
-              <p className="mt-4 text-xl text-center font-semibold uppercase tracking-wide text-blue-500">
+              <p className="mt-4 text-xl font-semibold tracking-wide text-center text-blue-500 uppercase">
                 {projectShortDescription}
               </p>
-              <p className="mt-8 mb-2 text-sm text-center font-semibold uppercase tracking-wide">
+              <p className="mt-8 mb-2 text-sm font-semibold tracking-wide text-center uppercase">
                 <Text tid="technologiesUsed" />
               </p>
               <div className="flex flex-row flex-wrap justify-evenly font-semibold">
                 {techStack
-                  ? techStack.map((item) => (
-                      <div className="my-4 mx-4 flex flex-col items-center text-center">
+                  ? techStack.map((item, index) => (
+                      <div
+                        key={item.name ? `${name}-tech-${item.name}` : `${name}-tech-${index}`}
+                        className="flex flex-col items-center mx-4 my-4 text-center"
+                      >
                         {item.logo}
                         <div className="flex flex-col text-center">
                           <p className="mt-1 text-xl">{item.name}</p>
                           {item.subtexts
-                            ? item.subtexts.map((subtext) => (
-                                <p className="mt-1 text-xs">{subtext}</p>
+                            ? item.subtexts.map((subtext, subIndex) => (
+                                <p
+                                  key={`${item.name || `tech-${index}`}-sub-${subIndex}`}
+                                  className="mt-1 text-xs"
+                                >
+                                  {subtext}
+                                </p>
                               ))
                             : null}
                         </div>
@@ -196,29 +211,29 @@ const DefaultProject = (props) => {
             </div>
           </div>
         </div>
-        <div className="my-4 mx-16 border border-gray-900" />
+        <div className="mx-16 my-4 border border-gray-900" />
         <div
           className={`${
             theme === "dark" ? "text-white" : "text-black"
           } mb-4 flex flex-row justify-center content-center`}
         >
           <div
-            className="w-auto cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1"
+            className="w-auto transition duration-300 ease-in-out transform cursor-pointer hover:-translate-y-1"
             onMouseEnter={() => setHoveredFeaturesButton(true)}
             onMouseLeave={() => setHoveredFeaturesButton(false)}
             onClick={() => setMoreInfoVisible(!moreInfoVisible)}
           >
             {!moreInfoVisible ? (
               <div>
-                <i className="icon-down-open text-lg mr-1" />
-                <span className="text-lg mr-1 font-semibold uppercase my-auto">
+                <i className="mr-1 text-lg icon-down-open" />
+                <span className="my-auto mr-1 text-lg font-semibold uppercase">
                   <Text tid="more" />
                 </span>
               </div>
             ) : (
               <div>
-                <i className="icon-up-open text-lg mr-1" />
-                <span className="text-lg mr-1 font-semibold uppercase my-auto">
+                <i className="mr-1 text-lg icon-up-open" />
+                <span className="my-auto mr-1 text-lg font-semibold uppercase">
                   <Text tid="less" />
                 </span>
               </div>
@@ -233,7 +248,7 @@ const DefaultProject = (props) => {
               leaveFrom="w-11/12 opacity-100"
               leaveTo="w-0 mx-auto opacity-0"
             >
-              <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-blue-500 to-teal-500" />
+              <div className="mx-auto w-11/12 h-px bg-gradient-to-r from-blue-400 via-blue-500 to-teal-500 transition duration-300 ease-in-out" />
             </Transition>
           </div>
         </div>
@@ -246,26 +261,26 @@ const DefaultProject = (props) => {
           >
             <div className="mt-2 w-full">
               <div className="flex flex-row justify-center mx-auto my-4">
-                <i className="icon-map-o text-lg mr-1" />
-                <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
+                <i className="mr-1 text-lg icon-map-o" />
+                <span className="my-auto text-lg font-semibold text-blue-500 uppercase">
                   <Text tid="aboutProject" />
                 </span>
               </div>
-              <div className="w-full text-md font-semibold px-8 md:px-16 text-justify">
+              <div className="px-8 w-full font-semibold text-justify text-md md:px-16">
                 {aboutProjectText}
               </div>
             </div>
 
-            <div className="mt-12 flex flex-row justify-center w-full">
-              <i className="icon-sliders text-lg mr-1" />
-              <span className="text-lg text-blue-500 font-semibold uppercase my-auto">
+            <div className="flex flex-row justify-center mt-12 w-full">
+              <i className="mr-1 text-lg icon-sliders" />
+              <span className="my-auto text-lg font-semibold text-blue-500 uppercase">
                 <Text tid="features" />
               </span>
             </div>
-            <ul className="w-full pb-4 grid grid-cols-1 lg:grid-cols-3 text-center text-sm font-semibold">
-              {features.map((item) => (
-                <li className="m-4 mx-auto text-md" key={item}>
-                  <i className="icon-ok-circled text-md mr-1 mx-2 my-auto" />
+            <ul className="grid grid-cols-1 pb-4 w-full text-sm font-semibold text-center lg:grid-cols-3">
+              {features.map((item, index) => (
+                <li className="m-4 mx-auto text-md" key={`${name}-feature-${index}`}>
+                  <i className="mx-2 my-auto mr-1 icon-ok-circled text-md" />
                   {item}
                 </li>
               ))}

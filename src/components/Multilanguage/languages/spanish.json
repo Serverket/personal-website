@@ -1,4 +1,5 @@
 {
+  "homeGreeting": "Hola amigo,",
   "homeName": "Yo Soy",
   "homeFrom": "DevOps | Miembro de The Parrot Project",
   "homeAbout1": "Soy Ingeniero Informático, partidario del Software Libre, Copyleft, Código Abierto y Compartir;",
@@ -10,6 +11,7 @@
   "projectsHeading": "Proyectos",
   "projectsSubheading": "(De nuevos a antiguos)",
   "viewSource": "Código Fuente",
+  "closedSource": "Código Privado",
   "viewLiveVersion": "Demo",
   "password": "Contraseña",
   "technologiesUsed": "Tecnologías Utilizadas:",
@@ -89,5 +91,6 @@
   "contactFormCookieText1": "Debido a la validación de seguridad, es esencial que des tu consentimiento para almacenar cookies. Si no lo aceptaste a propósito, no podrás utilizar el botón de contacto.",
   "contactFormCookieText2": "En este caso, para más consultas envía un correo electrónico a ",
   "contactFormCookieText3": "Si de alguna manera has perdido la oportunidad de dar tu consentimiento de cookies, puedes ",
-  "contactFormCookieText4": "hacerlo de nuevo."
+  "contactFormCookieText4": "hazlo de nuevo.",
+  "loading": "Cargando"
 }

@@ -42,17 +42,15 @@ export default function Projects() {
       </h1>
 
       {/* PROJECTS CONTAINER */}
-      <div className="p-1 md:p-4 flex flex-col">
+      <div className="flex flex-col p-1 md:p-4">
         {!hidden ? (
           <animated.div style={{ opacity }}>
             <ul>
-              {trail.map(({ opacity }, i) => {
-                return (
-                  <animated.li style={{ opacity }} key={Math.random() * 1000}>
-                    {projects[i]}
-                  </animated.li>
-                );
-              })}
+              {trail.map(({ opacity }, i) => (
+                <animated.li style={{ opacity }} key={`project-${i}`}>
+                  {projects[i]}
+                </animated.li>
+              ))}
             </ul>
           </animated.div>
         ) : null}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Transition } from "@tailwindui/react";
 import { Text } from "../Multilanguage/Text";
@@ -25,9 +25,31 @@ export default function Navigation() {
     xyz: settingsVisible ? [0, 0, 0] : [0, 0, 0],
   });
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setHidden(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleMobileMenu = () => setHidden((prev) => !prev);
+
+  const handleMenuKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleMobileMenu();
+    }
+  };
+
   //items for react-spring to map over (for trailing), mobile version
   const mobileNavItems = [
-    <div className="mt-4 w-full px-8 mx-auto h-12 flex flex-row justify-center items-center z-50">
+    <div className="flex z-50 flex-row justify-center items-center px-8 mx-auto mt-4 w-full h-12">
       <ThemeSelector />
       <LanguageSelector />
     </div>,
@@ -36,7 +58,7 @@ export default function Navigation() {
       href="https://github.com/Serverket"
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full px-3 py-2 rounded text-neutral-300 items-center justify-center z-50"
+      className="z-50 justify-center items-center px-3 py-2 w-full rounded text-neutral-300"
       onClick={() => setHidden(true)}
     >
       <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
@@ -46,7 +68,7 @@ export default function Navigation() {
 
     <Link
       to="/projects"
-      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center z-50"
+      className="z-50 justify-center items-center px-3 py-2 w-full text-gray-300 rounded"
       onClick={() => setHidden(true)}
     >
       <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
@@ -56,7 +78,7 @@ export default function Navigation() {
 
     <Link
       to="/about"
-      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center z-50"
+      className="z-50 justify-center items-center px-3 py-2 w-full text-gray-300 rounded"
       onClick={() => setHidden(true)}
     >
       <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
@@ -66,7 +88,7 @@ export default function Navigation() {
 
     <Link
       to="/contact"
-      className="w-full px-3 py-2 rounded text-gray-300 items-center justify-center z-50"
+      className="z-50 justify-center items-center px-3 py-2 w-full text-gray-300 rounded"
       onClick={() => setHidden(true)}
     >
       <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>
@@ -77,14 +99,14 @@ export default function Navigation() {
   const trail = useTrail(mobileNavItems.length, { opacity: hidden ? 0 : 1 });
 
   return (
-    <div className="border-b border-gray-800 shadow-xl z-50">
+    <div className="z-50 border-b border-gray-800 shadow-xl">
       <nav
         className={`${
           theme === "dark" ? "bg-black" : "bg-white"
         } flex items-center p-3 flex-wrap transition duration-300 ease-in-out z-50`}
       >
-        <Link to="/" className="ml-2 inline-flex items-center z-50">
-          <div className="flex items-center justify-center h-16 w-16">
+        <Link to="/" className="inline-flex z-50 items-center ml-2">
+          <div className="flex justify-center items-center w-16 h-16">
             <img
               className="w-8 hover:animate-pulse"
               src="/android-chrome-192x192.png"
@@ -92,7 +114,7 @@ export default function Navigation() {
             />
           </div>
         </Link>
-        <div className="ml-1 flex flex-col items-start justify-center z-50">
+        <div className="flex z-50 flex-col justify-center items-start ml-1">
           <h1
             className={`${
               theme === "dark" ? "text-white" : "text-black"
@@ -115,18 +137,20 @@ export default function Navigation() {
           className={`${
             theme === "dark" ? "text-white" : "text-black"
           } inline-flex p-3 rounded lg:hidden ml-auto outline-none nav-toggler z-50`}
-          onClick={() => setHidden(!hidden)}
+          type="button"
+          onClick={toggleMobileMenu}
+          onKeyDown={handleMenuKeyDown}
           tabIndex="0"
           role="button"
-          aria-expanded="false"
-          aria-label="Open menu"
+          aria-expanded={!hidden}
+          aria-label={hidden ? "Open menu" : "Close menu"}
         >
-          <i className="icon-menu text-xl" />
+          <i className="text-xl icon-menu" />
         </button>
 
         {/* DESKTOP VERSION */}
-        <div className="hidden lg:inline-flex lg:flex-grow lg:w-auto z-50">
-          <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto lg:items-center items-start flex flex-col lg:h-auto">
+        <div className="hidden z-50 lg:inline-flex lg:flex-grow lg:w-auto">
+          <div className="flex flex-col items-start lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto lg:items-center lg:h-auto">
             <a
               onMouseEnter={() => setHoveredGithub(true)}
               onMouseLeave={() => setHoveredGithub(false)}
@@ -137,7 +161,7 @@ export default function Navigation() {
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
-              <span className="text-md uppercase font-semibold">Github</span>
+              <span className="font-semibold uppercase text-md">Github</span>
 
               <Transition
                 show={hoveredGithub}
@@ -148,7 +172,7 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-green-500 to-teal-500" />
+                <div className="mx-auto w-11/12 h-px bg-gradient-to-r from-blue-400 via-green-500 to-teal-500 transition duration-300 ease-in-out" />
               </Transition>
             </a>
 
@@ -160,7 +184,7 @@ export default function Navigation() {
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
-              <span className="text-md uppercase font-semibold">
+              <span className="font-semibold uppercase text-md">
                 <Text tid="navProjects" />
               </span>
 
@@ -173,7 +197,7 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-green-500 to-teal-500" />
+                <div className="mx-auto w-11/12 h-px bg-gradient-to-r from-blue-400 via-green-500 to-teal-500 transition duration-300 ease-in-out" />
               </Transition>
             </Link>
 
@@ -185,7 +209,7 @@ export default function Navigation() {
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
-              <span className="text-md pl-2 uppercase font-semibold">
+              <span className="pl-2 font-semibold uppercase text-md">
                 <Text tid="navAbout" />
               </span>
 
@@ -198,7 +222,7 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="w-2/3 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-green-500 to-teal-500" />
+                <div className="mx-auto w-2/3 h-px bg-gradient-to-r from-blue-400 via-green-500 to-teal-500 transition duration-300 ease-in-out" />
               </Transition>
             </Link>
 
@@ -210,7 +234,7 @@ export default function Navigation() {
                 theme === "dark" ? "text-gray-300" : "text-gray-800"
               } mx-1 w-full px-3 py-2 rounded items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1`}
             >
-              <span className="text-md uppercase font-semibold">
+              <span className="font-semibold uppercase text-md">
                 <Text tid="navContact" />
               </span>
 
@@ -223,14 +247,14 @@ export default function Navigation() {
                 leaveFrom="w-11/12 opacity-100"
                 leaveTo="w-0 mx-auto opacity-0"
               >
-                <div className="w-11/12 mx-auto h-px transition duration-300 ease-in-out bg-gradient-to-r from-blue-400 via-green-500 to-teal-500" />
+                <div className="mx-auto w-11/12 h-px bg-gradient-to-r from-blue-400 via-green-500 to-teal-500 transition duration-300 ease-in-out" />
               </Transition>
             </Link>
 
             <ThemeSelector />
 
-            <div className="mx-2 h-4 w-2 border-l border-gray-700 z-50" />
-            <div className="mx-2 z-50">
+            <div className="z-50 mx-2 w-2 h-4 border-l border-gray-700" />
+            <div className="z-50 mx-2">
               {!settingsVisible ? (
                 <i
                   onClick={() => setsettingsVisible(!settingsVisible)}
@@ -259,7 +283,7 @@ export default function Navigation() {
             </div>
             {settingsVisible ? (
               <animated.div
-                className="flex flex-row items-center z-50"
+                className="flex z-50 flex-row items-center"
                 style={{
                   transform: xyz.to(
                     (x, y, z) => `translate3d(${x}px, ${y}px, ${z}px)`
@@ -279,13 +303,14 @@ export default function Navigation() {
             className={`${
               theme === "dark" ? "text-white bg-black" : "text-black bg-white"
             } w-full flex justify-center bg-black bg-opacity-75 pb-4 z-50`}
+            id="mobile-navigation"
           >
             <ul>
               {trail.map(({ opacity }, i) => {
                 const item = mobileNavItems[i];
                 return (
                   <animated.li style={{ opacity }} key={Math.random() * 1000}>
-                    <div className="w-full text-center font-semibold uppercase flex flex-col z-50">
+                    <div className="flex z-50 flex-col w-full font-semibold text-center uppercase">
                       {item}
                     </div>
                   </animated.li>

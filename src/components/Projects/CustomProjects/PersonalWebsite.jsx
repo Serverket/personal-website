@@ -232,8 +232,8 @@ export default function PersonalWebsite() {
               </span>
             </div>
             <ul className="w-full pb-4 grid grid-cols-1 lg:grid-cols-3 text-center text-sm font-semibold">
-              {features.map((item) => (
-                <li className="m-4 mx-auto text-md">
+              {features.map((item, index) => (
+                <li className="m-4 mx-auto text-md" key={`personal-feature-${index}`}>
                   <i className="icon-ok-circled text-md mr-1 mx-2 my-auto" />
                   {item}
                 </li>

@@ -33,7 +33,9 @@ export default function Home() {
             } px-8 md:px-0 mt-12 md:mt-40 mx-auto flex flex-col pointer-events-none z-20`}
           >
             <div className="self-center">
-              <p className="text-4xl sm:text-5xl leading-none">Hello friend,</p>
+              <p className="text-4xl sm:text-5xl leading-none">
+                <Text tid="homeGreeting" />
+              </p>
               <p className="text-6xl font-bold">
                 <Text tid="homeName" />{" "}
                 <span className="underline decoration-teal-400">Serverket</span>

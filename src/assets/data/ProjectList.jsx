@@ -26,6 +26,7 @@ const projectList = [
     githubLink={"https://github.com/colibricreativeweb/ccw-web"}
     lockIcon={"icon-lock-open text-md"}
     liveVersionLink={"https://www.colibricreativeweb.com/"}
+    showLiveVersion={false}
     projectShortDescription={<Text tid="ccwSubheading" />}
     aboutProjectText={
       <div>
@@ -94,6 +95,7 @@ const projectList = [
     githubLink={"https://github.com/RiveroVisualGroup/rgcweb-frontend"}
     lockIcon={"icon-lock text-md"}
     liveVersionLink={"https://www.riverosglobalcompany.com/"}
+    sourceLabelTid="closedSource"
     projectShortDescription={<Text tid="ltSubheading" />}
     aboutProjectText={
       <div>
@@ -158,7 +160,8 @@ const projectList = [
     imageBack={fdBack}
     githubLink={"https://github.com/RiveroVisualGroup/rgcweb-frontend"}
     lockIcon={"icon-lock text-md"}
-    liveVersionLink={"https://www.fundaciondarse.org/"}
+    showLiveVersion={false}
+    sourceLabelTid="closedSource"
     projectShortDescription={<Text tid="gcSubheading" />}
     aboutProjectText={
       <div>
@@ -243,7 +246,8 @@ const projectList = [
     imageBack={gcBack}
     githubLink={"https://github.com/RiveroVisualGroup/gecontracweb-frontend"}
     lockIcon={"icon-lock text-md"}
-    liveVersionLink={"https://gecontrac.com/"}
+    showLiveVersion={false}
+    sourceLabelTid="closedSource"
     projectShortDescription={<Text tid="spSubheading" />}
     aboutProjectText={
       <div>
@@ -320,7 +324,8 @@ const projectList = [
     imageBack={jdBack}
     githubLink={"https://github.com/RiveroVisualGroup/jdriveroweb-frontend"}
     lockIcon={"icon-lock text-md"}
-    liveVersionLink={"https://old.jdrivero.com"}
+    showLiveVersion={false}
+    sourceLabelTid="closedSource"
     projectShortDescription={<Text tid="jppSubheading" />}
     aboutProjectText={
       <div>

@@ -1,4 +1,5 @@
 {
+  "homeGreeting": "Hello friend,",
   "homeName": "I'm",
   "homeFrom": "DevOps | The Parrot Project Dev",
   "homeAbout1": "I'm a Computer Engineer, supporter of Free Software, Copyleft, Open Source and Sharing;",
@@ -10,6 +11,7 @@
   "projectsHeading": "Projects",
   "projectsSubheading": "(newest to oldest)",
   "viewSource": "View Source",
+  "closedSource": "Closed Source",
   "viewLiveVersion": "View Live Version",
   "password": "Password",
   "technologiesUsed": "Technologies Used",
@@ -89,5 +91,6 @@
   "contactFormCookieText1": "Because of safety validation, it is essential that you give consent to store cookies. If you didn't accept it on purpose, you won't be able use the contact button.",
   "contactFormCookieText2": "In this case, for further inquiries send an email to ",
   "contactFormCookieText3": "If you've somehow missed the opportunity to give your cookie consent, you can ",
-  "contactFormCookieText4": "do it again."
+  "contactFormCookieText4": "do it again.",
+  "loading": "Loading"
 }
