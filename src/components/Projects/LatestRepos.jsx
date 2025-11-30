@@ -182,17 +182,17 @@ const LatestRepos = () => {
               </div>
             ) : null}
             {repos.map((repo) => (
-              <div key={repo.id} className="p-2 rounded-xl border border-gray-800 shadow-xl">
-                <div className="flex flex-row flex-wrap md:flex-no-wrap">
+              <div key={repo.id} className="rounded-xl border border-gray-800 shadow-xl">
+                <div className="flex flex-row flex-wrap p-2 mt-2 min-w-full max-w-6xl h-auto md:flex-no-wrap">
                   <div
-                    className="relative m-2 w-full h-64 md:w-1/2"
+                    className="relative m-2 mx-auto my-auto w-full h-64 md:w-1/2"
                     onMouseEnter={() => setFlipped((prev) => ({ ...prev, [repo.id]: true }))}
                     onMouseLeave={() => setFlipped((prev) => ({ ...prev, [repo.id]: false }))}
                   >
                     <img
                       src={getScreenshotUrl(repo)}
                       alt={repo.name}
-                      className="object-cover object-top w-full h-full rounded-lg"
+                      className="object-cover object-top w-full max-w-3xl h-full rounded-lg"
                       onError={(e) => {
                         const currentSrc = e.target.src;
                         if (currentSrc.includes('api.screenshotmachine.com')) {
@@ -250,57 +250,53 @@ const LatestRepos = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-y-3 justify-start items-center m-2 w-full text-center md:w-1/3 md:items-start md:text-left">
-                    <h3 className="text-lg font-bold tracking-widest text-blue-500 uppercase">
-                      <a
-                        href={repo.html_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {repo.name} <i className="text-xs icon-link-ext" />
-                      </a>
-                    </h3>
-                    <p
-                      className={`mt-4 text-sm font-normal ${
+                  <div className="m-2 mx-auto my-auto w-full md:w-1/3">
+                    <div
+                      className={`${
                         theme === "dark" ? "text-white" : "text-black"
-                      }`}
+                      } w-full h-full flex flex-col justify-center text-center`}
                     >
-                      {repo.fork && <i className="text-sm icon-fork" />}
-                      <i className="text-sm icon-star" /> {repo.stargazers_count}
-                    </p>
-                    <p
-                      className={`text-sm font-light ${
-                        theme === "dark" ? "text-white" : "text-black"
-                      }`}
-                    >
-                      <Text tid="repoUpdate" /> {new Date(repo.updated_at).toUTCString()}
-                    </p>
-                    {repo.languages && repo.languages.length ? (
-                      <>
-                        <p
-                          className={`mt-4 text-sm font-semibold tracking-wide text-center uppercase ${
-                            theme === "dark" ? "text-white" : "text-black"
-                          }`}
+                      <h3 className="text-lg font-bold tracking-widest text-blue-500 uppercase">
+                        <a
+                          href={repo.html_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          <Text tid="technologiesUsed" />
+                          {repo.name} <i className="text-xs icon-link-ext" />
+                        </a>
+                      </h3>
+                      {repo.fork ? (
+                        <p className="mt-4 text-sm font-normal">
+                          <i className="text-sm icon-fork" />
                         </p>
-                        <div className="flex flex-row flex-wrap justify-evenly">
-                          {repo.languages.map((language) => {
-                            const badge = LANGUAGE_BADGES[language] || LANGUAGE_BADGES.JavaScript;
-                            return (
-                              <div key={language} className="flex flex-col items-center mx-2 my-2 text-center">
-                                <img
-                                  src={badge}
-                                  alt={language}
-                                  className="object-contain max-w-full h-8"
-                                  loading="lazy"
-                                />
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </>
-                    ) : null}
+                      ) : null}
+                      <div className="mx-auto my-3 w-12 h-px bg-gray-700 opacity-60" />
+                      <p className="mt-4 text-sm font-light">
+                        <Text tid="repoUpdate" /> {new Date(repo.updated_at).toUTCString()}
+                      </p>
+                      {repo.languages && repo.languages.length ? (
+                        <>
+                          <p className="mt-4 text-sm font-semibold tracking-wide text-center uppercase">
+                            <Text tid="technologiesUsed" />
+                          </p>
+                          <div className="flex flex-row flex-wrap justify-evenly font-semibold">
+                            {repo.languages.map((language) => {
+                              const badge = LANGUAGE_BADGES[language] || LANGUAGE_BADGES.JavaScript;
+                              return (
+                                <div key={language} className="flex flex-col items-center mx-2 my-2 text-center">
+                                  <img
+                                    src={badge}
+                                    alt={language}
+                                    className="object-contain max-w-full h-8"
+                                    loading="lazy"
+                                  />
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </div>
