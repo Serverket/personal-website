@@ -80,6 +80,11 @@ const LatestRepos = () => {
   const [flipped, setFlipped] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const handleCardTap = (repoId, e) => {
+    if (e.target.closest('a')) return;
+    setFlipped((prev) => ({ ...prev, [repoId]: !prev[repoId] }));
+  };
+
   const apiKey = import.meta.env.VITE_SCREENSHOT_API_KEY;
   const getScreenshotUrl = (repo) => {
     if (!repo.homepage) {
@@ -188,6 +193,7 @@ const LatestRepos = () => {
                     className="relative m-2 mx-auto my-auto w-full h-64 md:w-1/2"
                     onMouseEnter={() => setFlipped((prev) => ({ ...prev, [repo.id]: true }))}
                     onMouseLeave={() => setFlipped((prev) => ({ ...prev, [repo.id]: false }))}
+                    onClick={(e) => handleCardTap(repo.id, e)}
                   >
                     <img
                       src={getScreenshotUrl(repo)}
@@ -203,7 +209,7 @@ const LatestRepos = () => {
                       }}
                     />
                     <div
-                      className={`absolute inset-0 flex flex-col justify-center w-full h-full rounded-lg bg-black bg-opacity-50 transition-opacity duration-300 ${flipped[repo.id] ? "opacity-100" : "opacity-0"}`}
+                      className={`absolute inset-0 flex flex-col justify-center w-full h-full rounded-lg bg-black bg-opacity-50 transition-opacity duration-300 ${flipped[repo.id] ? "opacity-100" : "opacity-0 pointer-events-none"}`}
                     >
                       <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-evenly">
                         <div
