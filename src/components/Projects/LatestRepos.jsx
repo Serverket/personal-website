@@ -209,9 +209,9 @@ const LatestRepos = () => {
                       }}
                     />
                     <div
-                      className={`absolute inset-0 flex flex-col justify-center w-full h-full rounded-lg bg-black bg-opacity-50 transition-opacity duration-300 ${flipped[repo.id] ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+                      className={`absolute inset-0 flex flex-col items-center justify-center w-full h-full rounded-lg bg-black bg-opacity-50 transition-opacity duration-300 ${flipped[repo.id] ? "opacity-100" : "opacity-0 pointer-events-none"}`}
                     >
-                      <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-evenly">
+                      <div className="flex flex-col items-center space-y-6 md:flex-row md:space-y-0 md:space-x-12 md:justify-center">
                         <div
                           className={`${
                             theme === "dark"
