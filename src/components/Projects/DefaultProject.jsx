@@ -31,23 +31,51 @@ const DefaultProject = (props) => {
   } = props;
   const shouldShowLiveButton = showLiveVersion && Boolean(liveVersionLink);
 
+  const [imgFrontSrc, setImgFrontSrc] = useState(imageFront);
+  const [imgBackSrc, setImgBackSrc] = useState(imageBack);
+  const [loading, setLoading] = useState(true);
+
+
+  const handleImageError = (setSrc, currentSrc, repoName) => {
+    if (currentSrc.includes("api.screenshotmachine.com")) {
+      setSrc(`https://raw.githubusercontent.com/serverket/${repoName || "unknown"}/master/public/cover.png`);
+    } else if (currentSrc.includes("raw.githubusercontent.com")) {
+      setSrc("/z-cover.png");
+    }
+  };
+
+
+  const getRepoName = (link) => {
+    if (!link) return "";
+    const parts = link.split("/");
+    return parts[parts.length - 1];
+  }
+  const repoName = getRepoName(githubLink);
+
   return (
     <div className="mb-16 rounded-xl shadow-xl">
-      {/* HEADING */}
       <div className="flex flex-row justify-center items-center mb-1">
         <i className="pb-1 text-5xl text-transparent bg-clip-text bg-gradient-to-b from-blue-200 via-blue-500 to-teal-500 icon-code" />
         <h3
-          className={`${
-            theme === "dark" ? "text-white" : "text-black"
-          } ml-4 text-2xl tracking-wide font-semibold`}
+          className={`${theme === "dark" ? "text-white" : "text-black"
+            } ml-4 text-2xl tracking-wide font-semibold`}
         >
           {name}
         </h3>
       </div>
       <div className="flex flex-col rounded-xl border border-gray-800">
         <div className="flex flex-row flex-wrap p-2 mt-2 min-w-full max-w-6xl h-auto md:flex-no-wrap">
-          <div className="m-2 mx-auto my-auto w-full h-64 md:w-1/2">
-            {/* IMAGE */}
+          <div className="m-2 mx-auto my-auto w-full h-64 md:w-1/2 relative">
+            {loading && (
+              <div className="absolute inset-0 z-20 flex justify-center items-center rounded-lg bg-gray-900/10 backdrop-blur-sm">
+                <div className="relative">
+                  <div className={`absolute inset-0 bg-gradient-to-tr rounded-full opacity-40 animate-ping ${theme === "dark" ? "from-blue-500 to-cyan-400" : "from-blue-400 to-cyan-300"}`} />
+                  <div className={`flex relative flex-col justify-center items-center px-6 py-6 rounded-full border backdrop-blur ${theme === "dark" ? "border-blue-400/60 bg-slate-900/60" : "border-blue-500 bg-white shadow-lg"}`}>
+                    <i className={`text-2xl icon-code ${theme === "dark" ? "text-blue-300" : "text-blue-600"}`} />
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div
               className="relative w-full max-w-3xl h-full rounded-lg"
@@ -61,11 +89,12 @@ const DefaultProject = (props) => {
                   transform,
                 }}
               >
-                {/* IMAGE FRONT */}
                 <img
                   className="object-cover w-full h-full rounded-lg"
-                  src={imageFront}
+                  src={imgFrontSrc}
                   alt="overview"
+                  onLoad={() => setLoading(false)}
+                  onError={() => handleImageError(setImgFrontSrc, imgFrontSrc, repoName)}
                 />
               </animated.div>
               <animated.div
@@ -75,24 +104,22 @@ const DefaultProject = (props) => {
                   transform: transform.to((t) => `${t} rotateX(180deg)`),
                 }}
               >
-                {/* IMAGE BACK, WITH LINKS TO PROJECT */}
                 <div>
                   <img
                     className="object-cover absolute w-full h-full rounded-lg opacity-50"
-                    src={imageBack}
+                    src={imgBackSrc}
                     alt="login"
+                    onError={() => handleImageError(setImgBackSrc, imgBackSrc, repoName)}
                   />
                   <div className="flex absolute flex-col justify-center w-full h-full">
                     <div className="flex flex-col">
                       <div className="flex flex-row justify-evenly">
                         <div
-                          className={`${
-                            theme === "dark"
-                              ? "text-white hover:text-blue-400"
-                              : "text-gray-800 hover:text-blue-400"
-                          } cursor-pointer`}
+                          className={`${theme === "dark"
+                            ? "text-white hover:text-blue-400"
+                            : "text-gray-800 hover:text-blue-400"
+                            } cursor-pointer`}
                         >
-                          {/* GITHUB */}
                           <a
                             className="flex flex-col items-center"
                             href={githubLink}
@@ -101,20 +128,18 @@ const DefaultProject = (props) => {
                           >
                             <i className="object-center text-6xl icon-github-circled" />
                             <p className="mt-1 font-semibold">
-                             <i className={lockIcon} /><Text tid={sourceLabelTid} />
+                              <i className={lockIcon} /><Text tid={sourceLabelTid} />
                             </p>
                           </a>
                         </div>
 
                         {shouldShowLiveButton ? (
                           <div
-                            className={`${
-                              theme === "dark"
-                                ? "text-white hover:text-blue-400"
-                                : "text-gray-800 hover:text-blue-400"
-                            } cursor-pointer`}
+                            className={`${theme === "dark"
+                              ? "text-white hover:text-blue-400"
+                              : "text-gray-800 hover:text-blue-400"
+                              } cursor-pointer`}
                           >
-                            {/* LIVE VERSION INCL. POPOVER FOR CREDENTIALS */}
                             <a
                               className="flex flex-col items-center"
                               href={liveVersionLink}
@@ -135,17 +160,13 @@ const DefaultProject = (props) => {
               </animated.div>
             </div>
           </div>
-          {/* DESCRIPTION */}
           <div className="m-2 mx-auto w-full md:w-1/3">
             <div
-              className={`${
-                theme === "dark" ? "text-white" : "text-black"
-              } w-full h-full flex flex-col justify-center`}
+              className={`${theme === "dark" ? "text-white" : "text-black"
+                } w-full h-full flex flex-col justify-center`}
             >
-              {/* CONTAINER FOR MOBILE GITHUB / LIVE VERSION, HIDDEN >md breakpoint*/}
               <div className="flex flex-row justify-evenly mt-8 mb-4 md:hidden">
                 <div className="cursor-pointer hover:text-gray-500">
-                  {/* GITHUB */}
                   <a
                     className="flex flex-col items-center"
                     href={githubLink}
@@ -154,14 +175,13 @@ const DefaultProject = (props) => {
                   >
                     <i className="object-center text-6xl icon-github-circled" />
                     <p className="my-1 font-semibold">
-                    <i className={lockIcon} /><Text tid={sourceLabelTid} />
+                      <i className={lockIcon} /><Text tid={sourceLabelTid} />
                     </p>
                   </a>
                 </div>
 
                 {shouldShowLiveButton ? (
                   <div className="hover:text-gray-500">
-                    {/* LIVE VERSION */}
                     <a
                       className="flex flex-col items-center cursor-pointer"
                       href={liveVersionLink}
@@ -186,26 +206,26 @@ const DefaultProject = (props) => {
               <div className="flex flex-row flex-wrap justify-evenly font-semibold">
                 {techStack
                   ? techStack.map((item, index) => (
-                      <div
-                        key={item.name ? `${name}-tech-${item.name}` : `${name}-tech-${index}`}
-                        className="flex flex-col items-center mx-4 my-4 text-center"
-                      >
-                        {item.logo}
-                        <div className="flex flex-col text-center">
-                          <p className="mt-1 text-xl">{item.name}</p>
-                          {item.subtexts
-                            ? item.subtexts.map((subtext, subIndex) => (
-                                <p
-                                  key={`${item.name || `tech-${index}`}-sub-${subIndex}`}
-                                  className="mt-1 text-xs"
-                                >
-                                  {subtext}
-                                </p>
-                              ))
-                            : null}
-                        </div>
+                    <div
+                      key={item.name ? `${name}-tech-${item.name}` : `${name}-tech-${index}`}
+                      className="flex flex-col items-center mx-4 my-4 text-center"
+                    >
+                      {item.logo}
+                      <div className="flex flex-col text-center">
+                        <p className="mt-1 text-xl">{item.name}</p>
+                        {item.subtexts
+                          ? item.subtexts.map((subtext, subIndex) => (
+                            <p
+                              key={`${item.name || `tech-${index}`}-sub-${subIndex}`}
+                              className="mt-1 text-xs"
+                            >
+                              {subtext}
+                            </p>
+                          ))
+                          : null}
                       </div>
-                    ))
+                    </div>
+                  ))
                   : null}
               </div>
             </div>
@@ -213,9 +233,8 @@ const DefaultProject = (props) => {
         </div>
         <div className="mx-16 my-4 border border-gray-900" />
         <div
-          className={`${
-            theme === "dark" ? "text-white" : "text-black"
-          } mb-4 flex flex-row justify-center content-center`}
+          className={`${theme === "dark" ? "text-white" : "text-black"
+            } mb-4 flex flex-row justify-center content-center`}
         >
           <div
             className="w-auto transition duration-300 ease-in-out transform cursor-pointer hover:-translate-y-1"
@@ -255,9 +274,8 @@ const DefaultProject = (props) => {
 
         {moreInfoVisible ? (
           <div
-            className={`${
-              theme === "dark" ? "text-white" : "text-black"
-            } flex flex-col items-center`}
+            className={`${theme === "dark" ? "text-white" : "text-black"
+              } flex flex-col items-center`}
           >
             <div className="mt-2 w-full">
               <div className="flex flex-row justify-center mx-auto my-4">

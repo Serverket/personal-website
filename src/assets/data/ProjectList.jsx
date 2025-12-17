@@ -20,6 +20,73 @@ const projectList = [
   <LatestRepos />,
 
   <DefaultProject
+    name={"BufferRing"}
+    imageFront={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://bufferring.org")}&dimension=640x480&delay=3000&quality=100`}
+    imageBack={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://bufferring.org")}&dimension=640x480&delay=3000&quality=100`}
+    githubLink={"https://github.com/bufferring"}
+    lockIcon={"icon-lock-open text-md"}
+    liveVersionLink={"https://bufferring.org"}
+    showLiveVersion={true}
+    projectShortDescription={<Text tid="brSubheading" />}
+    aboutProjectText={
+      <div>
+        <Text tid="aboutBr" />
+      </div>
+    }
+    features={[<Text tid="brFeature1" />, <Text tid="brFeature2" />, <Text tid="brFeature3" />]}
+    techStack={[
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-HTML-311701?style=for-the-badge&color=1e1e2e&logo=html5&logoColor=white"
+            alt="html"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-CSS-311701?style=for-the-badge&color=1e1e2e&logo=css3&logoColor=white"
+            alt="css"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-JavaScript-311701?style=for-the-badge&color=1e1e2e&logo=javascript&logoColor=white"
+            alt="javascript"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-React-311701?style=for-the-badge&color=1e1e2e&logo=react&logoColor=white"
+            alt="react"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-TailwindCSS-311701?style=for-the-badge&color=1e1e2e&logo=tailwindcss&logoColor=white"
+            alt="tailwindcss"
+          />
+        ),
+      },
+      {
+        logo: (
+          <img
+            src="https://img.shields.io/badge/-Vercel-311701?style=for-the-badge&color=1e1e2e&logo=vercel&logoColor=white"
+            alt="vercel"
+          />
+        ),
+      },
+    ]}
+  />,
+
+  <DefaultProject
     name={"Colibri Creative Web"}
     imageFront={ccwFront}
     imageBack={ccwBack}
@@ -102,7 +169,7 @@ const projectList = [
         <Text tid="aboutLt1" />
       </div>
     }
-    features={[<Text tid="ltFeature1" />, <Text tid="ltFeature2" />]}
+    features={[<Text tid="ltFeature1" />, <Text tid="ltFeature2" />, <Text tid="ltFeature3" />]}
     techStack={[
       {
         logo: (

@@ -69,34 +69,34 @@ const LatestRepos = () => {
   const isDark = theme === "dark";
 
   const LANGUAGE_BADGES = {
-  JavaScript: "https://img.shields.io/badge/-JavaScript-311701?style=for-the-badge&color=1e1e2e&logo=javascript&logoColor=white",
-  TypeScript: "https://img.shields.io/badge/-TypeScript-311701?style=for-the-badge&color=1e1e2e&logo=typescript&logoColor=white",
-  React: "https://img.shields.io/badge/-React-311701?style=for-the-badge&color=1e1e2e&logo=react&logoColor=white",
-  'Node.js': "https://img.shields.io/badge/-Node.js-311701?style=for-the-badge&color=1e1e2e&logo=node.js&logoColor=white",
-  Python: "https://img.shields.io/badge/-Python-311701?style=for-the-badge&color=1e1e2e&logo=python&logoColor=white",
-  HTML: "https://img.shields.io/badge/-HTML-311701?style=for-the-badge&color=1e1e2e&logo=html5&logoColor=white",
-  CSS: "https://img.shields.io/badge/-CSS-311701?style=for-the-badge&color=1e1e2e&logo=css3&logoColor=white",
-  Vue: "https://img.shields.io/badge/-Vue-311701?style=for-the-badge&color=1e1e2e&logo=vuedotjs&logoColor=white",
-  Angular: "https://img.shields.io/badge/-Angular-311701?style=for-the-badge&color=1e1e2e&logo=angular&logoColor=white",
-  Docker: "https://img.shields.io/badge/-Docker-311701?style=for-the-badge&color=1e1e2e&logo=docker&logoColor=white",
-  Git: "https://img.shields.io/badge/-Git-311701?style=for-the-badge&color=1e1e2e&logo=git&logoColor=white",
-  'C++': "https://img.shields.io/badge/-C++-311701?style=for-the-badge&color=1e1e2e&logo=cplusplus&logoColor=white",
-  Java: "https://img.shields.io/badge/-Java-311701?style=for-the-badge&color=1e1e2e&logo=coffeescript&logoColor=white",
-  Go: "https://img.shields.io/badge/-Go-311701?style=for-the-badge&color=1e1e2e&logo=go&logoColor=white",
-  Rust: "https://img.shields.io/badge/-Rust-311701?style=for-the-badge&color=1e1e2e&logo=rust&logoColor=white",
-  PHP: "https://img.shields.io/badge/-PHP-311701?style=for-the-badge&color=1e1e2e&logo=php&logoColor=white",
-  Ruby: "https://img.shields.io/badge/-Ruby-311701?style=for-the-badge&color=1e1e2e&logo=ruby&logoColor=white",
-  Swift: "https://img.shields.io/badge/-Swift-311701?style=for-the-badge&color=1e1e2e&logo=swift&logoColor=white",
-  Kotlin: "https://img.shields.io/badge/-Kotlin-311701?style=for-the-badge&color=1e1e2e&logo=kotlin&logoColor=white",
-  SQL: "https://img.shields.io/badge/-SQL-311701?style=for-the-badge&color=1e1e2e&logo=database&logoColor=white",
-  MongoDB: "https://img.shields.io/badge/-MongoDB-311701?style=for-the-badge&color=1e1e2e&logo=mongodb&logoColor=white",
-  PostgreSQL: "https://img.shields.io/badge/-PostgreSQL-311701?style=for-the-badge&color=1e1e2e&logo=postgresql&logoColor=white",
-  AWS: "https://img.shields.io/badge/-AWS-311701?style=for-the-badge&color=1e1e2e&logo=amazonaws&logoColor=white",
-  'Next.js': "https://img.shields.io/badge/-Next.js-311701?style=for-the-badge&color=1e1e2e&logo=nextdotjs&logoColor=white",
-  Tailwind: "https://img.shields.io/badge/-Tailwind-311701?style=for-the-badge&color=1e1e2e&logo=tailwindcss&logoColor=white",
-  Express: "https://img.shields.io/badge/-Express-311701?style=for-the-badge&color=1e1e2e&logo=express&logoColor=white",
-  Shell: "https://img.shields.io/badge/-Shell-311701?style=for-the-badge&color=1e1e2e&logo=powershell&logoColor=white",
-};
+    JavaScript: "https://img.shields.io/badge/-JavaScript-311701?style=for-the-badge&color=1e1e2e&logo=javascript&logoColor=white",
+    TypeScript: "https://img.shields.io/badge/-TypeScript-311701?style=for-the-badge&color=1e1e2e&logo=typescript&logoColor=white",
+    React: "https://img.shields.io/badge/-React-311701?style=for-the-badge&color=1e1e2e&logo=react&logoColor=white",
+    'Node.js': "https://img.shields.io/badge/-Node.js-311701?style=for-the-badge&color=1e1e2e&logo=node.js&logoColor=white",
+    Python: "https://img.shields.io/badge/-Python-311701?style=for-the-badge&color=1e1e2e&logo=python&logoColor=white",
+    HTML: "https://img.shields.io/badge/-HTML-311701?style=for-the-badge&color=1e1e2e&logo=html5&logoColor=white",
+    CSS: "https://img.shields.io/badge/-CSS-311701?style=for-the-badge&color=1e1e2e&logo=css3&logoColor=white",
+    Vue: "https://img.shields.io/badge/-Vue-311701?style=for-the-badge&color=1e1e2e&logo=vuedotjs&logoColor=white",
+    Angular: "https://img.shields.io/badge/-Angular-311701?style=for-the-badge&color=1e1e2e&logo=angular&logoColor=white",
+    Docker: "https://img.shields.io/badge/-Docker-311701?style=for-the-badge&color=1e1e2e&logo=docker&logoColor=white",
+    Git: "https://img.shields.io/badge/-Git-311701?style=for-the-badge&color=1e1e2e&logo=git&logoColor=white",
+    'C++': "https://img.shields.io/badge/-C++-311701?style=for-the-badge&color=1e1e2e&logo=cplusplus&logoColor=white",
+    Java: "https://img.shields.io/badge/-Java-311701?style=for-the-badge&color=1e1e2e&logo=coffeescript&logoColor=white",
+    Go: "https://img.shields.io/badge/-Go-311701?style=for-the-badge&color=1e1e2e&logo=go&logoColor=white",
+    Rust: "https://img.shields.io/badge/-Rust-311701?style=for-the-badge&color=1e1e2e&logo=rust&logoColor=white",
+    PHP: "https://img.shields.io/badge/-PHP-311701?style=for-the-badge&color=1e1e2e&logo=php&logoColor=white",
+    Ruby: "https://img.shields.io/badge/-Ruby-311701?style=for-the-badge&color=1e1e2e&logo=ruby&logoColor=white",
+    Swift: "https://img.shields.io/badge/-Swift-311701?style=for-the-badge&color=1e1e2e&logo=swift&logoColor=white",
+    Kotlin: "https://img.shields.io/badge/-Kotlin-311701?style=for-the-badge&color=1e1e2e&logo=kotlin&logoColor=white",
+    SQL: "https://img.shields.io/badge/-SQL-311701?style=for-the-badge&color=1e1e2e&logo=database&logoColor=white",
+    MongoDB: "https://img.shields.io/badge/-MongoDB-311701?style=for-the-badge&color=1e1e2e&logo=mongodb&logoColor=white",
+    PostgreSQL: "https://img.shields.io/badge/-PostgreSQL-311701?style=for-the-badge&color=1e1e2e&logo=postgresql&logoColor=white",
+    AWS: "https://img.shields.io/badge/-AWS-311701?style=for-the-badge&color=1e1e2e&logo=amazonaws&logoColor=white",
+    'Next.js': "https://img.shields.io/badge/-Next.js-311701?style=for-the-badge&color=1e1e2e&logo=nextdotjs&logoColor=white",
+    Tailwind: "https://img.shields.io/badge/-Tailwind-311701?style=for-the-badge&color=1e1e2e&logo=tailwindcss&logoColor=white",
+    Express: "https://img.shields.io/badge/-Express-311701?style=for-the-badge&color=1e1e2e&logo=express&logoColor=white",
+    Shell: "https://img.shields.io/badge/-Shell-311701?style=for-the-badge&color=1e1e2e&logo=powershell&logoColor=white",
+  };
 
   const apiKey = import.meta.env.VITE_SCREENSHOT_API_KEY;
   const getScreenshotUrl = (repo) => {
@@ -190,10 +190,10 @@ const LatestRepos = () => {
         {loading ? (
           <div className="flex justify-center py-16">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-full opacity-40 animate-ping" />
-              <div className="flex relative flex-col justify-center items-center px-10 py-10 rounded-full border backdrop-blur border-blue-400/60 bg-slate-900/60">
-                <i className="text-4xl text-blue-300 icon-code" />
-                <p className="mt-2 text-xs font-semibold tracking-[0.4em] uppercase text-blue-200">
+              <div className={`absolute inset-0 bg-gradient-to-tr rounded-full opacity-40 animate-ping ${isDark ? "from-blue-500 to-cyan-400" : "from-blue-400 to-cyan-300"}`} />
+              <div className={`flex relative flex-col justify-center items-center px-10 py-10 rounded-full border backdrop-blur ${isDark ? "border-blue-400/60 bg-slate-900/60" : "border-blue-500 bg-white shadow-lg"}`}>
+                <i className={`text-4xl icon-code ${isDark ? "text-blue-300" : "text-blue-600"}`} />
+                <p className={`mt-2 text-xs font-semibold tracking-[0.4em] uppercase ${isDark ? "text-blue-200" : "text-blue-800"}`}>
                   <Text tid="loading" />
                 </p>
               </div>
@@ -203,9 +203,8 @@ const LatestRepos = () => {
 
         {repos.length === 0 && !loading ? (
           <div
-            className={`${
-              isDark ? "text-slate-200" : "text-gray-800"
-            } mx-auto w-full max-w-4xl rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/40 to-slate-900/10 p-8 text-center backdrop-blur`}
+            className={`${isDark ? "text-slate-200" : "text-gray-800"
+              } mx-auto w-full max-w-4xl rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/40 to-slate-900/10 p-8 text-center backdrop-blur`}
           >
             <p className="text-lg font-semibold tracking-wide">
               No repositories available at this time.
@@ -266,7 +265,7 @@ const LatestRepos = () => {
                         </div>
                         <h3 className={`mt-3 text-xl font-semibold tracking-tight ${isDark ? "text-white" : "text-black"}`}>
                           <a
-                            href={repo.html_url}
+                            href={repo.homepage}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`flex items-center gap-1.5 ${isDark ? "text-white" : "text-black"}`}
@@ -300,11 +299,10 @@ const LatestRepos = () => {
 
                       <div className="flex flex-wrap gap-3 pt-2 mt-auto">
                         <a
-                          className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
-                            isDark 
-                              ? "border-white/20 text-white hover:border-gray-400/60" 
-                              : "border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200 hover:border-gray-500"
-                          }`}
+                          className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${isDark
+                            ? "border-white/20 text-white hover:border-gray-400/60"
+                            : "border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200 hover:border-gray-500"
+                            }`}
                           href={repo.html_url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -314,11 +312,10 @@ const LatestRepos = () => {
                         </a>
                         {hasHomepage ? (
                           <a
-                            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
-                              isDark 
-                                ? "border-cyan-400/50 text-cyan-100 hover:bg-cyan-500/10" 
-                                : "border-blue-300 bg-blue-50 text-blue-800 hover:bg-blue-100 hover:border-blue-400"
-                            }`}
+                            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${isDark
+                              ? "border-cyan-400/50 text-cyan-100 hover:bg-cyan-500/10"
+                              : "border-blue-300 bg-blue-50 text-blue-800 hover:bg-blue-100 hover:border-blue-400"
+                              }`}
                             href={repo.homepage}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -335,13 +332,12 @@ const LatestRepos = () => {
             );
           })}
         </div>
-        
+
         <div className="flex justify-center mt-12">
           <button
             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-            className={`text-4xl icon-down-open animate-bounce transition-transform hover:scale-125 cursor-pointer ${
-              isDark ? "text-blue-300 hover:text-blue-200" : "text-blue-600 hover:text-blue-700"
-            }`}
+            className={`text-4xl icon-down-open animate-bounce transition-transform hover:scale-125 cursor-pointer ${isDark ? "text-blue-300 hover:text-blue-200" : "text-blue-600 hover:text-blue-700"
+              }`}
           />
         </div>
       </div>
