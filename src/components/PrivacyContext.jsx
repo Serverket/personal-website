@@ -1,5 +1,4 @@
 import React, { useState, createContext, useEffect } from "react";
-import Cookies from "js-cookie";
 
 export const PrivacyContext = createContext({
     privacyAccepted: false,
@@ -8,22 +7,21 @@ export const PrivacyContext = createContext({
 });
 
 export function PrivacyProvider({ children }) {
-    const [privacyAccepted, setPrivacyAccepted] = useState(
-        !!Cookies.get("consentcookie")
-    );
+    const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
     const acceptPrivacy = () => {
+        localStorage.setItem("privacyAccepted", "true");
         setPrivacyAccepted(true);
     };
 
     const resetPrivacy = () => {
-        Cookies.remove("consentcookie");
+        localStorage.removeItem("privacyAccepted");
         setPrivacyAccepted(false);
     };
 
     useEffect(() => {
-        // Check initially
-        setPrivacyAccepted(!!Cookies.get("consentcookie"));
+        const storedPrivacy = localStorage.getItem("privacyAccepted");
+        setPrivacyAccepted(storedPrivacy === "true");
     }, []);
 
     return (

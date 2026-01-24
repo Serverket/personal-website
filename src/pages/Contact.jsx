@@ -19,16 +19,16 @@ export default function Contact() {
       ) : (
         <div className="text-xl text-center px-8 md:px-40 py-20">
           <p className="pt-12">
-            <Text tid="contactFormCookieText1" />
+            <Text tid="contactFormPrivacyText1" />
           </p>
 
           <p className="pt-12">
-            <Text tid="contactFormCookieText3" />
+            <Text tid="contactFormPrivacyText2" />
             <span
               className="cursor-pointer underline text-blue-400"
               onClick={() => resetPrivacy()}
             >
-              <Text tid="contactFormCookieText4" />
+              <Text tid="contactFormPrivacyText3" />
             </span>
           </p>
         </div>

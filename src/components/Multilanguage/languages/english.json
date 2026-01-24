@@ -96,12 +96,11 @@
   "imprintPrivacyPolicy": "Imprint / Privacy Policy",
   "acceptPrivacy": "I accept the",
   "privacyPolicy": "Privacy Policy",
-  "cookieText1": "We do not track you.",
-  "cookieText2": "Learn more.",
-  "cookieAccept": "Accept",
-  "contactFormCookieText1": "Because of safety validation, it is essential that you give consent to store cookies. If you didn't accept it on purpose, you won't be able use the contact button.",
-  "contactFormCookieText2": "In this case, for further inquiries send an email to ",
-  "contactFormCookieText3": "If you've somehow missed the opportunity to give your cookie consent, you can ",
-  "contactFormCookieText4": "do it again.",
+  "privacyBannerText": "We do not track you.",
+  "privacyBannerLink": "Learn more.",
+  "privacyBannerAccept": "Accept",
+  "contactFormPrivacyText1": "To ensure you understand how we handle your data, it is essential that you accept our Privacy Policy. If you don't accept it, you won't be able to use the contact button.",
+  "contactFormPrivacyText2": "If you've somehow missed the opportunity to accept the privacy policy, you can ",
+  "contactFormPrivacyText3": "do it again.",
   "loading": "Loading"
 }

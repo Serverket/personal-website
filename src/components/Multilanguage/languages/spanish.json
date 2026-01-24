@@ -96,12 +96,11 @@
   "imprintPrivacyPolicy": "Pie de Imprenta / Política de Privacidad",
   "acceptPrivacy": "Yo acepto la",
   "privacyPolicy": "Política de Privacidad",
-  "cookieText1": "No te rastreamos.",
-  "cookieText2": "Aprender más.",
-  "cookieAccept": "Aceptar",
-  "contactFormCookieText1": "Debido a la validación de seguridad, es esencial que des tu consentimiento para almacenar cookies. Si no lo aceptaste a propósito, no podrás utilizar el botón de contacto.",
-  "contactFormCookieText2": "En este caso, para más consultas envía un correo electrónico a ",
-  "contactFormCookieText3": "Si de alguna manera has perdido la oportunidad de dar tu consentimiento de cookies, puedes ",
-  "contactFormCookieText4": "hazlo de nuevo.",
+  "privacyBannerText": "No te rastreamos.",
+  "privacyBannerLink": "Aprender más.",
+  "privacyBannerAccept": "Aceptar",
+  "contactFormPrivacyText1": "Para asegurarnos de que entiendes cómo manejamos tus datos, es esencial que aceptes nuestra Política de Privacidad. Si no la aceptas, no podrás utilizar el botón de contacto.",
+  "contactFormPrivacyText2": "Si de alguna manera has perdido la oportunidad de aceptar la política de privacidad, puedes ",
+  "contactFormPrivacyText3": "hacerlo de nuevo.",
   "loading": "Cargando"
 }
