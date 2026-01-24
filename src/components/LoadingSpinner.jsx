@@ -1,5 +1,6 @@
 import React from "react";
 import { Spinner } from "react-rainbow-components";
+import { Text } from "./Multilanguage/Text";
 
 export default function LoadingSpinner() {
   return (
@@ -9,7 +10,7 @@ export default function LoadingSpinner() {
           className="relative mt-40 text-center text-xl font-semibold"
           style={{ color: "rgb(0, 163, 220)" }}
         >
-          Loading...
+          <Text tid="loading" />...
         </p>
       </Spinner>
     </div>
