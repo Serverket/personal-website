@@ -68,36 +68,6 @@ const LatestRepos = () => {
   const [loading, setLoading] = useState(true);
   const isDark = theme === "dark";
 
-  const LANGUAGE_BADGES = {
-    JavaScript: "https://img.shields.io/badge/-JavaScript-311701?style=for-the-badge&color=1e1e2e&logo=javascript&logoColor=white",
-    TypeScript: "https://img.shields.io/badge/-TypeScript-311701?style=for-the-badge&color=1e1e2e&logo=typescript&logoColor=white",
-    React: "https://img.shields.io/badge/-React-311701?style=for-the-badge&color=1e1e2e&logo=react&logoColor=white",
-    'Node.js': "https://img.shields.io/badge/-Node.js-311701?style=for-the-badge&color=1e1e2e&logo=node.js&logoColor=white",
-    Python: "https://img.shields.io/badge/-Python-311701?style=for-the-badge&color=1e1e2e&logo=python&logoColor=white",
-    HTML: "https://img.shields.io/badge/-HTML-311701?style=for-the-badge&color=1e1e2e&logo=html5&logoColor=white",
-    CSS: "https://img.shields.io/badge/-CSS-311701?style=for-the-badge&color=1e1e2e&logo=css3&logoColor=white",
-    Vue: "https://img.shields.io/badge/-Vue-311701?style=for-the-badge&color=1e1e2e&logo=vuedotjs&logoColor=white",
-    Angular: "https://img.shields.io/badge/-Angular-311701?style=for-the-badge&color=1e1e2e&logo=angular&logoColor=white",
-    Docker: "https://img.shields.io/badge/-Docker-311701?style=for-the-badge&color=1e1e2e&logo=docker&logoColor=white",
-    Git: "https://img.shields.io/badge/-Git-311701?style=for-the-badge&color=1e1e2e&logo=git&logoColor=white",
-    'C++': "https://img.shields.io/badge/-C++-311701?style=for-the-badge&color=1e1e2e&logo=cplusplus&logoColor=white",
-    Java: "https://img.shields.io/badge/-Java-311701?style=for-the-badge&color=1e1e2e&logo=coffeescript&logoColor=white",
-    Go: "https://img.shields.io/badge/-Go-311701?style=for-the-badge&color=1e1e2e&logo=go&logoColor=white",
-    Rust: "https://img.shields.io/badge/-Rust-311701?style=for-the-badge&color=1e1e2e&logo=rust&logoColor=white",
-    PHP: "https://img.shields.io/badge/-PHP-311701?style=for-the-badge&color=1e1e2e&logo=php&logoColor=white",
-    Ruby: "https://img.shields.io/badge/-Ruby-311701?style=for-the-badge&color=1e1e2e&logo=ruby&logoColor=white",
-    Swift: "https://img.shields.io/badge/-Swift-311701?style=for-the-badge&color=1e1e2e&logo=swift&logoColor=white",
-    Kotlin: "https://img.shields.io/badge/-Kotlin-311701?style=for-the-badge&color=1e1e2e&logo=kotlin&logoColor=white",
-    SQL: "https://img.shields.io/badge/-SQL-311701?style=for-the-badge&color=1e1e2e&logo=database&logoColor=white",
-    MongoDB: "https://img.shields.io/badge/-MongoDB-311701?style=for-the-badge&color=1e1e2e&logo=mongodb&logoColor=white",
-    PostgreSQL: "https://img.shields.io/badge/-PostgreSQL-311701?style=for-the-badge&color=1e1e2e&logo=postgresql&logoColor=white",
-    AWS: "https://img.shields.io/badge/-AWS-311701?style=for-the-badge&color=1e1e2e&logo=amazonaws&logoColor=white",
-    'Next.js': "https://img.shields.io/badge/-Next.js-311701?style=for-the-badge&color=1e1e2e&logo=nextdotjs&logoColor=white",
-    Tailwind: "https://img.shields.io/badge/-Tailwind-311701?style=for-the-badge&color=1e1e2e&logo=tailwindcss&logoColor=white",
-    Express: "https://img.shields.io/badge/-Express-311701?style=for-the-badge&color=1e1e2e&logo=express&logoColor=white",
-    Shell: "https://img.shields.io/badge/-Shell-311701?style=for-the-badge&color=1e1e2e&logo=powershell&logoColor=white",
-  };
-
   const apiKey = import.meta.env.VITE_SCREENSHOT_API_KEY;
   const getScreenshotUrl = (repo) => {
     if (!repo.homepage) {
@@ -113,13 +83,13 @@ const LatestRepos = () => {
   useEffect(() => {
     let isMounted = true;
 
-    const cachedEntry = readCachedRepos();
+      const cachedEntry = readCachedRepos();
     if (cachedEntry && cachedEntry.data) {
       setRepos(cachedEntry.data);
       setLoading(false);
     }
 
-    const fetchReposWithLanguages = async () => {
+      const fetchReposWithLanguages = async () => {
       try {
         const response = await fetch(
           "https://api.github.com/users/serverket/repos?sort=created&direction=desc&page=1&per_page=3"
@@ -135,27 +105,27 @@ const LatestRepos = () => {
           return;
         }
 
-        const enriched = await Promise.all(
-          data.map(async (repo) => {
-            try {
-              const languagesResponse = await fetch(repo.languages_url);
-              const languagesData = await languagesResponse.json();
-              const languages = Object.keys(languagesData || {});
-              return { ...repo, languages };
-            } catch (error) {
-              console.warn("Failed to fetch languages", error);
-              return {
-                ...repo,
-                languages: repo.language ? [repo.language] : [],
-              };
-            }
-          })
-        );
+          const enriched = await Promise.all(
+            data.map(async (repo) => {
+              try {
+                const languagesResponse = await fetch(repo.languages_url);
+                const languagesData = await languagesResponse.json();
+                const languages = Object.keys(languagesData || {});
+                return { ...repo, languages };
+              } catch (error) {
+                console.warn("Failed to fetch languages", error);
+                return {
+                  ...repo,
+                  languages: repo.language ? [repo.language] : [],
+                };
+              }
+            })
+          );
 
         if (!isMounted) return;
-        setRepos(enriched);
+          setRepos(enriched);
         setLoading(false);
-        writeCachedRepos(enriched);
+          writeCachedRepos(enriched);
       } catch (error) {
         console.error("Failed to fetch repos", error);
         if (isMounted) {
@@ -166,7 +136,7 @@ const LatestRepos = () => {
     };
 
     if (!cachedEntry) {
-      fetchReposWithLanguages();
+        fetchReposWithLanguages();
     }
 
     return () => {
@@ -276,26 +246,11 @@ const LatestRepos = () => {
                         </h3>
                       </div>
 
-                      {repo.languages && repo.languages.length ? (
-                        <div>
-                          <p className={`text-[0.6rem] font-semibold uppercase tracking-[0.35em] ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                            <Text tid="technologiesUsed" />
-                          </p>
-                          <div className="flex flex-row flex-wrap justify-evenly mt-2 font-semibold">
-                            {repo.languages.slice(0, 6).map((language) => {
-                              const badgeUrl = LANGUAGE_BADGES[language];
-                              return (
-                                <div
-                                  key={language}
-                                  className="flex flex-col items-center mx-4 my-4 text-center"
-                                >
-                                  {badgeUrl ? <img src={badgeUrl} alt={language} className="h-6" /> : null}
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      ) : null}
+                      <div>
+                        <p className={`text-sm leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                          {repo.description || "No description provided."}
+                        </p>
+                      </div>
 
                       <div className="flex flex-wrap gap-3 pt-2 mt-auto">
                         <a

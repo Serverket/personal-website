@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../components/DarkMode/ThemeProvider";
+import { Link } from "react-router-dom";
 import { Text } from "../components/Multilanguage/Text";
 import { LanguageContext } from "../components/Multilanguage/LanguageProvider";
 
@@ -9,9 +10,8 @@ export default function ImprintPrivacyPolicy() {
 
   return (
     <div
-      className={`${
-        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      }
+      className={`${theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+        }
     w-full min-h-screen font-noto`}
     >
       <h1 className="text-3xl font-bold underline text-center">
@@ -53,8 +53,15 @@ export default function ImprintPrivacyPolicy() {
                 <br />
                 If you contact us directly, we may receive additional
                 information about you such as your name, email address, phone
-                number, the contents of the message and any other information you may choose to provide.
+                number, the contents of the message and any other information you may choose to provide. We really care about privacy, that's why:
               </p>
+              <ul className="list-disc list-inside ml-4 mt-2">
+                <li>We do not hold log files.</li>
+                <li>We do not use tracking cookies.</li>
+                <li>We do not track user behavior.</li>
+                <li>We do not sell any user information.</li>
+                <li>We do not permanently save any user information.</li>
+              </ul>
               <h2 className="font-bold mt-6">Log Files</h2>
               <p>
                 Serverket.dev follows a standard procedure of using log files.
@@ -64,10 +71,14 @@ export default function ImprintPrivacyPolicy() {
                 (IP) addresses, browser type, Internet Service Provider (ISP),
                 date and time stamp, referring/exit pages, and possibly the
                 number of clicks. These are not linked to any information that
-                is personally identifiable. The purpose of the information is
-                for analyzing trends, administering the site, tracking users'
-                movement on the website, and gathering demographic information.
+                is personally identifiable. We do not access or use this information for tracking purposes.
               </p>
+              <h2 className="font-bold mt-6">Vercel</h2>
+              <p>
+                We do not hold log files in our end, however we use Vercel as our deployment platform and it has its own Privacy Policy in regards to this matter, you can review their policies at <a href="https://vercel.com/legal/privacy-policy#customers" target="_blank" rel="noreferrer" className="underline text-blue-400">https://vercel.com/legal/privacy-policy#customers</a>.
+              </p>
+
+
               <h2 className="font-bold mt-6">
                 CCPA Privacy Rights (Do Not Sell My Personal Information)
               </h2>
@@ -138,7 +149,7 @@ export default function ImprintPrivacyPolicy() {
               </p>
               <h2 className="font-bold mt-6">Inquiries</h2>
               <p className="mb-20">
-                Any inquiries shall be sent to Manuel Hernandez.
+                Any inquiries shall be sent to <Link to="/contact" className="underline text-blue-400"><Text tid="navContact" /></Link>.
                 <br />
               </p>
             </>
@@ -148,18 +159,18 @@ export default function ImprintPrivacyPolicy() {
                 Política de Privacidad de Serverket.dev
               </h1>
               <p>
-              En Serverket.dev, una de nuestras principales prioridades es la privacidad de
+                En Serverket.dev, una de nuestras principales prioridades es la privacidad de
                 nuestros visitantes. Este documento de Política de Privacidad contiene tipos de
                 información que es recopilada y registrada por Serverket.dev y
                 cómo la utilizamos.
               </p>
               <br />
               <p>
-              Si tiene alguna pregunta o necesita más información
+                Si tiene alguna pregunta o necesita más información
                 sobre nuestra Política de Privacidad, no dude en ponerse en contacto con nosotros.
               </p>
               <p>
-              La presente Política de Privacidad se aplica únicamente a nuestras actividades en línea y es
+                La presente Política de Privacidad se aplica únicamente a nuestras actividades en línea y es
                 válida para los visitantes de nuestro sitio web con respecto a la
                 información que compartan y/o recopilen en Serverket.dev.
                 Esta política no es aplicable a ninguna información recogida
@@ -171,7 +182,7 @@ export default function ImprintPrivacyPolicy() {
               <br />
               <h2 className="font-bold">Información que recolectamos</h2>
               <p>
-              La información personal que se le solicite y las razones por las que
+                La información personal que se le solicite y las razones por las que
                 razones por las que se le pide que la proporcione, se le explicarán
                 en el momento en que le pidamos sus datos personales.
                 personales.
@@ -182,16 +193,14 @@ export default function ImprintPrivacyPolicy() {
               </p>
               <h2 className="font-bold mt-6">Archivos de registro</h2>
               <p>
-              Serverket.dev sigue un procedimiento estándar de uso de archivos de registro.
+                Serverket.dev sigue un procedimiento estándar de uso de archivos de registro.
                 Estos archivos registran a los visitantes cuando visitan los sitios web. Todas las empresas
                 empresas de hosting hacen esto y es una parte de los servicios analíticos de hosting. La información recogida por los archivos de registro en
                 información recogida por los archivos de registro
                 (IP), tipo de navegador, proveedor de servicios de Internet (ISP),
                 sello de fecha y hora, páginas de referencia/salida y, posiblemente, el
                 número de clics. Estos datos no están vinculados a ninguna información
-                de identificación personal. La finalidad de la información es
-                para analizar tendencias, administrar el sitio, rastrear los movimientos de los usuarios en el sitio y recopilar información territorial.
-                usuarios en el sitio web y recopilar información demográfica.
+                de identificación personal. No accedemos ni utilizamos esta información para fines de seguimiento.
               </p>
               <h2 className="font-bold mt-6">
                 Derechos de privacidad de CCPA (No vender mi información
@@ -268,7 +277,7 @@ export default function ImprintPrivacyPolicy() {
               </p>
               <h2 className="font-bold mt-6">Consultas</h2>
               <p className="mb-20">
-                Cualquier consulta deberá ser enviada a Manuel Hernandez.
+                Cualquier consulta deberá ser enviada a <Link to="/contact" className="underline text-blue-400"><Text tid="navContact" /></Link>.
                 <br />
               </p>
             </>
