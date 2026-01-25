@@ -130,7 +130,7 @@ export default function Home() {
             srcLang="es"
             label="Fondo de video de una colorida animación en bucle sin sonido"
           />
-          Your browser does not support the video tag.
+          <Text tid="homeVideoUnsupported" />
         </video>
         <canvas ref={canvasRef} className="hidden" aria-hidden="true" />
       </div>
@@ -154,7 +154,7 @@ export default function Home() {
                 className={`${theme === "dark" ? "text-neutral-300" : "text-neutral-300"
                   } text-xl font-semibold tracking-wider uppercase`}
               >
-                Frontend Web Developer
+                <Text tid="navRole" />
               </p>
               <p className="text-neutral-500 text-lg font-semibold text-justify">
                 <Text tid="homeFrom" />

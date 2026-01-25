@@ -129,7 +129,7 @@ export default function Navigation() {
               theme === "dark" ? "text-gray-400" : "text-gray-800"
             } text-md tracking-wider leading-none`}
           >
-            Frontend Web Developer
+            <Text tid="navRole" />
           </h1>
         </div>
 

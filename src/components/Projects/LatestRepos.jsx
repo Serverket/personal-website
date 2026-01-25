@@ -177,10 +177,10 @@ const LatestRepos = () => {
               } mx-auto w-full max-w-4xl rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/40 to-slate-900/10 p-8 text-center backdrop-blur`}
           >
             <p className="text-lg font-semibold tracking-wide">
-              No repositories available at this time.
+              <Text tid="reposEmptyTitle" />
             </p>
             <p className="mt-2 text-sm text-slate-400">
-              GitHub API rate limits or privacy settings might be hiding them. Please retry later.
+              <Text tid="reposEmptySubtitle" />
             </p>
           </div>
         ) : null}
@@ -226,11 +226,11 @@ const LatestRepos = () => {
                           </span>
                           {repo.fork ? (
                             <span className={`rounded-full px-3 py-[0.35rem] text-[0.65rem] font-semibold ${isDark ? "bg-gray-900/70 text-gray-200" : "bg-gray-100 text-gray-600 border border-gray-300"}`}>
-                              Forked
+                              <Text tid="repoForked" />
                             </span>
                           ) : null}
                           <span className={`rounded-full px-3 py-[0.35rem] text-[0.65rem] font-semibold ${isDark ? "bg-gray-900/70 text-gray-400" : "bg-gray-100 text-gray-600 border border-gray-300"}`}>
-                            Updated: {new Date(repo.updated_at).toLocaleDateString()}
+                            <Text tid="repoUpdate" /> {new Date(repo.updated_at).toLocaleDateString()}
                           </span>
                         </div>
                         <h3 className={`mt-3 text-xl font-semibold tracking-tight ${isDark ? "text-white" : "text-black"}`}>

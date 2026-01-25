@@ -7,7 +7,26 @@ export const LanguageContext = createContext({
 });
 
 export function LanguageProvider({ children }) {
-  const [userLanguage, setUserLanguage] = useState("english");
+  const [userLanguage, setUserLanguage] = useState(() => {
+    try {
+      const storedLanguage = window.localStorage.getItem("userLanguage");
+      if (storedLanguage && languageOptions[storedLanguage]) {
+        return storedLanguage;
+      }
+      const browserLanguageRaw =
+        typeof navigator !== "undefined" && navigator.language
+          ? navigator.language
+          : "";
+      const browserLanguage = browserLanguageRaw.split("-")[0].toLowerCase();
+      if (browserLanguage && languageOptions[browserLanguage]) {
+        window.localStorage.setItem("userLanguage", browserLanguage);
+        return browserLanguage;
+      }
+    } catch (error) {
+      console.warn("Unable to resolve preferred language", error);
+    }
+    return "english";
+  });
 
   const provider = {
     userLanguage,
