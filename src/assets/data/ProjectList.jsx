@@ -87,12 +87,12 @@ const projectList = [
   />,
 
   <DefaultProject
-    name={"Chinchilla QR"}
-    imageFront={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://www.chinchillaqr.us")}&dimension=640x480&delay=3000&quality=100`}
-    imageBack={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://www.chinchillaqr.us")}&dimension=640x480&delay=3000&quality=100`}
-    githubLink={"https://github.com/colibricreativeweb/chinchilla-qr"}
+    name={"GetQR"}
+    imageFront={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://getqr.online")}&dimension=640x480&delay=3000&quality=100`}
+    imageBack={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://getqr.online")}&dimension=640x480&delay=3000&quality=100`}
+    githubLink={"https://github.com/Serverket/getqr"}
     lockIcon={"icon-lock-open text-md"}
-    liveVersionLink={"https://www.chinchillaqr.us/"}
+    liveVersionLink={"https://getqr.online"}
     showLiveVersion={true}
     projectShortDescription={<Text tid="cqSubheading" />}
     aboutProjectText={
