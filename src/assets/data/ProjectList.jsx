@@ -21,8 +21,8 @@ const projectList = [
 
   <DefaultProject
     name={"BufferRing"}
-    imageFront={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://bufferring.org")}&dimension=640x480&delay=3000&quality=100`}
-    imageBack={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://bufferring.org")}&dimension=640x480&delay=3000&quality=100`}
+    imageFront={"https://api.microlink.io/?url=https://bufferring.org&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=2000"}
+    imageBack={"https://api.microlink.io/?url=https://bufferring.org&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=2000"}
     githubLink={"https://github.com/bufferring"}
     lockIcon={"icon-lock-open text-md"}
     liveVersionLink={"https://bufferring.org"}
@@ -88,8 +88,8 @@ const projectList = [
 
   <DefaultProject
     name={"GetQR"}
-    imageFront={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://getqr.online")}&dimension=640x480&delay=3000&quality=100`}
-    imageBack={`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent("https://getqr.online")}&dimension=640x480&delay=3000&quality=100`}
+    imageFront={"https://api.microlink.io/?url=https://getqr.online&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=2000"}
+    imageBack={"https://api.microlink.io/?url=https://getqr.online&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=2000"}
     githubLink={"https://github.com/Serverket/getqr"}
     lockIcon={"icon-lock-open text-md"}
     liveVersionLink={"https://getqr.online"}

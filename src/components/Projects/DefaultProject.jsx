@@ -37,7 +37,13 @@ const DefaultProject = (props) => {
 
 
   const handleImageError = (setSrc, currentSrc, repoName) => {
-    if (currentSrc.includes("api.screenshotmachine.com")) {
+    if (currentSrc.includes("api.microlink.io")) {
+      if (liveVersionLink) {
+        setSrc(`https://api.screenshotmachine.com/?key=${import.meta.env.VITE_SCREENSHOT_API_KEY}&url=${encodeURIComponent(liveVersionLink)}&dimension=640x480&delay=3000&quality=100`);
+      } else {
+        setSrc(`https://raw.githubusercontent.com/serverket/${repoName || "unknown"}/master/public/cover.png`);
+      }
+    } else if (currentSrc.includes("api.screenshotmachine.com")) {
       setSrc(`https://raw.githubusercontent.com/serverket/${repoName || "unknown"}/master/public/cover.png`);
     } else if (currentSrc.includes("raw.githubusercontent.com")) {
       setSrc("/z-cover.png");
@@ -65,9 +71,9 @@ const DefaultProject = (props) => {
       </div>
       <div className="flex flex-col rounded-xl border border-gray-800">
         <div className="flex flex-row flex-wrap p-2 mt-2 min-w-full max-w-6xl h-auto md:flex-no-wrap">
-          <div className="m-2 mx-auto my-auto w-full h-64 md:w-1/2 relative">
+          <div className="relative m-2 mx-auto my-auto w-full h-64 md:w-1/2">
             {loading && (
-              <div className="absolute inset-0 z-20 flex justify-center items-center rounded-lg bg-gray-900/10 backdrop-blur-sm">
+              <div className="flex absolute inset-0 z-20 justify-center items-center rounded-lg backdrop-blur-sm bg-gray-900/10">
                 <div className="relative">
                   <div className={`absolute inset-0 bg-gradient-to-tr rounded-full opacity-40 animate-ping ${theme === "dark" ? "from-blue-500 to-cyan-400" : "from-blue-400 to-cyan-300"}`} />
                   <div className={`flex relative flex-col justify-center items-center px-6 py-6 rounded-full border backdrop-blur ${theme === "dark" ? "border-blue-400/60 bg-slate-900/60" : "border-blue-500 bg-white shadow-lg"}`}>

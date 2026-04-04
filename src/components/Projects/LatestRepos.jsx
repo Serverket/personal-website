@@ -73,9 +73,7 @@ const LatestRepos = () => {
     if (!repo.homepage) {
       return coverUrl(repo);
     }
-    const url = repo.homepage;
-    const screenshotUrl = `https://api.screenshotmachine.com/?key=${apiKey}&url=${encodeURIComponent(url)}&dimension=640x480&delay=3000&quality=100`;
-    return screenshotUrl;
+    return `https://api.microlink.io/?url=${encodeURIComponent(repo.homepage)}&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=2000`;
   };
   const coverUrl = (repo) => `https://raw.githubusercontent.com/serverket/${repo.name}/master/public/cover.png`;
   const defaultUrl = "/z-cover.png";
@@ -161,7 +159,7 @@ const LatestRepos = () => {
           <div className="flex justify-center py-16">
             <div className="relative">
               <div className={`absolute inset-0 bg-gradient-to-tr rounded-full opacity-40 animate-ping ${isDark ? "from-blue-500 to-cyan-400" : "from-blue-400 to-cyan-300"}`} />
-              <div className={`flex relative flex-col justify-center items-center px-10 py-10 rounded-full border backdrop-blur ${isDark ? "border-blue-400/60 bg-slate-900/60" : "border-blue-500 bg-white shadow-lg"}`}>
+              <div className={`flex relative flex-col justify-center items-center px-10 py-10 rounded-full border backdrop-blur ${isDark ? "border-blue-400/60 bg-slate-900/60" : "bg-white border-blue-500 shadow-lg"}`}>
                 <i className={`text-4xl icon-code ${isDark ? "text-blue-300" : "text-blue-600"}`} />
                 <p className={`mt-2 text-xs font-semibold tracking-[0.4em] uppercase ${isDark ? "text-blue-200" : "text-blue-800"}`}>
                   <Text tid="loading" />
@@ -209,7 +207,13 @@ const LatestRepos = () => {
                         loading="lazy"
                         onError={(e) => {
                           const currentSrc = e.target.src;
-                          if (currentSrc.includes("api.screenshotmachine.com")) {
+                          if (currentSrc.includes("api.microlink.io")) {
+                            if (repo.homepage) {
+                              e.target.src = `https://api.screenshotmachine.com/?key=${apiKey}&url=${encodeURIComponent(repo.homepage)}&dimension=640x480&delay=3000&quality=100`;
+                            } else {
+                              e.target.src = coverUrl(repo);
+                            }
+                          } else if (currentSrc.includes("api.screenshotmachine.com")) {
                             e.target.src = coverUrl(repo);
                           } else if (currentSrc.includes("raw.githubusercontent.com")) {
                             e.target.src = defaultUrl;
